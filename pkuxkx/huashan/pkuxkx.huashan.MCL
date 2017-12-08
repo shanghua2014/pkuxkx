@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 08ÈÕ ÐÇÆÚÎå, ÏÂÎç 6:46 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 08ÈÕ ÐÇÆÚÎå, ÏÂÎç 8:07 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -17,7 +17,7 @@
    id="d5d5b743bbb1d5f4b9f93710"
    input_font_name="ÐÂËÎÌå"
    mapping_failure="Alas, you cannot go that way."
-   name="pkuxkx-newbie"
+   name="huashan"
    new_activity_sound="(No sound)"
    output_font_name="ºÚÌå"
    script_editor="C:\Program Files\Sublime Text 2.0.2 x64\sublime_text.exe"
@@ -122,7 +122,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
   >
   <trigger
    enabled="y"
@@ -133,6 +133,36 @@
    sequence="100"
   >
   <send>say %1,"%10"."%11","%12"</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="house"
+   match="^(.*)\s-"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xs.getHouse("%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   lines_to_match="2"
+   match="^ÄãÏòÔÀÁéÉº´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^ÔÀÁéÉº¶ÔÄãËµµÀ£º×î½ü»ªÉ½ÆÄ²»°²Äþ£¬Äã´ø×ÅÕâ¿éÁîÅÆÈ¥Ñ²ÂßÒ»ÏÂ°É¡£"
+   multi_line="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xs.go()</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="^ÄãÔÚ\S+Ñ²ß®£¬ÉÐÎ´·¢ÏÖµÐ×Ù¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xs.go()</send>
   </trigger>
   <trigger
    enabled="y"
@@ -149,8 +179,22 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
   >
+  <alias
+   match="job"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask yue about job</send>
+  </alias>
+  <alias
+   match="success"
+   enabled="y"
+   sequence="100"
+  >
+  <send>give ling pai to yue</send>
+  </alias>
 </aliases>
 
 <!-- timers -->
@@ -158,7 +202,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
   >
 </timers>
 
@@ -167,7 +211,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
   >
 
   <macro name="up" type="send_now" >
@@ -261,10 +305,10 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
   >
-  <variable name="path"></variable>
-  <variable name="patrolOver">n(nw)(nd)(wd)(nd)(wd)(sd)(nu) 2(nd)(ed)(wu)(nu)(wd)(eu)(nd) w 3(nu) 3(sd) e 2n</variable>
+  <variable name="path">2n e 3(sd) 3(nu) w (nd) (eu) (wd) (nu) (wu) (ed) 2(nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n</variable>
+  <variable name="patrolOver"></variable>
 </variables>
 
 <!-- colours -->
@@ -272,7 +316,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
   >
 
 <ansi>
@@ -329,7 +373,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
   >
 
   <key name="0" >
@@ -443,7 +487,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 18:46:31"
+   date_saved="2017-12-08 20:07:08"
   >
 
 <ansi>

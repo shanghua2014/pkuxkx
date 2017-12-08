@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê Ê®¶þÔÂ 08ÈÕ ÐÇÆÚÎå, ÏÂÎç 7:30 -->
+<!-- MuClient version 5.05 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- aliases -->
+
+<aliases
+   muclient_version="5.05"
+   world_file_version="15"
+   date_saved="2017-12-08 19:30:31"
+  >
+  <alias
+   match="job"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask yue about job</send>
+  </alias>
+  <alias
+   match="success"
+   enabled="y"
+   sequence="100"
+  >
+  <send>give ling pai to yue</send>
+  </alias>
+</aliases>
+</muclient>

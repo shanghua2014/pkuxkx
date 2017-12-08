@@ -1,11 +1,12 @@
 // var str = '2n e 3(sd) 3(nu) w (nd) (eu) (wd) (nu) (wu) (ed) 2(nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n';
 // 巡山路径
-SetVariable('path', '');
+SetVariable('path', '2n e 3(sd) 3(nu) w (nd) (eu) (wd) (nu) (wu) (ed) 2(nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n');
 // n(nw)(nd)(wd)(nd)(wd)(sd)(nu) 2(nd)(ed)(wu)(nu)(wd)(eu)(nd) w 3(nu) 3(sd) e 2n
 
 // 走过的路径
-SetVariable('patrolOver', 'n(nw)(nd)(wd)(nd)(wd)(sd)(nu) 2(nd)(ed)(wu)(nu)(wd)(eu)(nd) w 3(nu) 3(sd) e 2n');
-var	sx = {
+DeleteVariable('patrolOver');
+SetVariable('patrolOver', '');
+var	xs = {
 	loading:false,
 	pathBack : '',
 	go : function () {
@@ -19,7 +20,7 @@ var	sx = {
 				if (this.loading) {
 					send('say 路径已就绪-开始回家.....');
 					note('走');
-					note(this.pathBack);
+					DoAfterSpecial(2, this.pathBack, 11);
 				}
 				return;
 			}
@@ -36,6 +37,12 @@ var	sx = {
 		}
 		SetVariable('path', path);
 		SetVariable('patrolOver', patrolOver);
+	},
+	getHouse : function ( houseNmae ) {
+		var houses = GetVariable('houseName');
+		houses = houses + houseNmae;
+		SetVariable('houseName', houses);
+		// note(homeName);
 	}
 };
 
@@ -83,6 +90,6 @@ function reversePath ( path ) {
 			}
 		}
 	}
-	sx.loading = true;
+	xs.loading = true;
 	return rpath;
 }
