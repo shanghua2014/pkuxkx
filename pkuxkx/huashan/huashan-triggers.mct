@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê Ê®¶þÔÂ 08ÈÕ ÐÇÆÚÎå, ÏÂÎç 2:21 -->
+<!-- MuClient version 5.05 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- triggers -->
+
+<triggers
+   muclient_version="5.05"
+   world_file_version="15"
+   date_saved="2017-12-08 14:21:42"
+  >
+  <trigger
+   enabled="y"
+   lines_to_match="2"
+   match="#(\d+),(\d+),(\d+),(\d+),(\d+),(\d+)\n#(\d+),(\d+),(\d+),(\d+),(\d+),(\d+)"
+   multi_line="y"
+   regexp="y"
+   sequence="100"
+  >
+  <send>say %1,"%10"."%11","%12"</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="ÄãËµµÀ£º¡¸haha¡¹"
+   send_to="12"
+   sequence="100"
+  >
+  <send>test</send>
+  </trigger>
+</triggers>
+</muclient>

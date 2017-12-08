@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê ¶þÔÂ 10ÈÕ ÐÇÆÚÎå, ÏÂÎç 5:29 -->
+<!-- MuClient version 4.12 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- aliases -->
+
+<aliases
+   muclient_version="4.12"
+   world_file_version="15"
+   date_saved="2017-02-10 17:29:07"
+  >
+  <alias
+   match="duBook"
+   enabled="y"
+   expand_variables="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>du @bkName for 1</send>
+  </alias>
+  <alias
+   match="lujob"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask lu about job</send>
+  </alias>
+  <alias
+   match="pingjob"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask yizhi about ¹¤×÷</send>
+  </alias>
+  <alias
+   match="yky_cdjh"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask you kunyi about ´³µ´½­ºþ</send>
+  </alias>
+</aliases>
+</muclient>

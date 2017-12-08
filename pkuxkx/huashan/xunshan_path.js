@@ -1,0 +1,1 @@
+path : '2n e 3(sd/nu) 3(nu/sd) w (nd/su) (eu/wd) (wd/eu) (nu/sd) (wu/ed) (ed/wu) 2(nd/su) (nu/sd) (sd/nu) (wd/eu) (nd/wu) (wd/eu) (nd/su) (nw/se) n ';

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê ¶þÔÂ 10ÈÕ ÐÇÆÚÎå, ÏÂÎç 10:39 -->
+<!-- MuClient version 4.12 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- timers -->
+
+<timers
+   muclient_version="4.12"
+   world_file_version="15"
+   date_saved="2017-02-10 22:39:56"
+  >
+
+  <timer name="loginTimer" second="15.00"    send_to="12"
+active_closed="y" >
+  <send>if (!IsConnected()) {Connect();EnableTimer("loginTimer", false)}</send>
+  </timer>
+
+</timers>
+</muclient>

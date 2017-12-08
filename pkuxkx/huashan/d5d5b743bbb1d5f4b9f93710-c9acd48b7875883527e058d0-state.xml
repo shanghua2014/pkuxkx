@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê Ê®¶þÔÂ 08ÈÕ ÐÇÆÚÎå, ÏÂÎç 4:34 -->
+<!-- MuClient version 5.05 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- ²å¼þ×´Ì¬ÒÑ±»±£´æ¡£²å¼þ:¡°pkuxkx_p2palias_v20160728¡±£¬ÓÎÏ·:¡°pkuxkx-newbie¡±¡£ -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.05"
+   world_file_version="15"
+   date_saved="2017-12-08 16:34:54"
+  >
+  <variable name="roomname">¾®µ×</variable>
+  <variable name="step_maxn">5</variable>
+  <variable name="walk_step_count">6</variable>
+</variables>
+</muclient>

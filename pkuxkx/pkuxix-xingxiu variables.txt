@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê ËÄÔÂ 17ÈÕ ÐÇÆÚÒ», ÏÂÎç 8:10 -->
+<!-- MuClient version 4.94 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="4.94"
+   world_file_version="15"
+   date_saved="2017-04-17 20:10:54"
+  >
+  <variable name="book">shu</variable>
+  <variable name="dodge">15</variable>
+  <variable name="exp">3126</variable>
+  <variable name="force">29</variable>
+  <variable name="literate">101</variable>
+  <variable name="poison">101</variable>
+  <variable name="qn">665</variable>
+  <variable name="staff">8</variable>
+</variables>
+</muclient>

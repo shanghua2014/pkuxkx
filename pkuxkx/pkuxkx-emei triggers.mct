@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê ¶þÔÂ 27ÈÕ ÐÇÆÚÒ», ÏÂÎç 3:30 -->
+<!-- MuClient version 4.94 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- triggers -->
+
+<triggers
+   muclient_version="4.94"
+   world_file_version="15"
+   date_saved="2017-02-27 15:30:19"
+  >
+  <trigger
+   enabled="y"
+   group="job"
+   lines_to_match="2"
+   match="^¾²ºÍÊ¦Ì«ËµµÀ£º¡¸ÕâÃ´¿ì¾Í¾²ÏÂÐÄÀ´ÁË£¿ÄãÕæÊÇÓÐ·ðÔµ°¡¡£¡¹\nÍê³ÉÈÎÎñºó£¬Äã±»½±ÀøÁË£º"
+   multi_line="y"
+   regexp="y"
+   sequence="100"
+  >
+  <send>ask jinghe about help</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="job"
+   lines_to_match="2"
+   match="^ÄãÏò¾²ºÍÊ¦Ì«´òÌýÓÐ¹Ø¡ºhelp¡»µÄÏûÏ¢¡£\n¾²ºÍÊ¦Ì«ËµµÀ£º¡¸Äã¸Õ½øÎÒÅÉ£¬ÆäÊµÎÒÅÉÒ»ÇÐÒÔ¾²ÐÞÎªÖ÷£¬ÄãÇÒÈ¥(.*)Äî¶Î·ð¾­\(nianjing\)£¬¾²ÏÂÐÄÀ´°É¡£¡¹"
+   multi_line="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>nianjing("%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="nianjing"
+   match="^Í¨¹ýÕâ¶ÎµÄÄ¬Äî·ð¾­£¬Äã¾õµÃ×Ô¼ºµÄ¶ÁÊéÐ´×ÖÌá¸ßÁË¡£"
+   regexp="y"
+   send_to="11"
+   sequence="100"
+  >
+  <send>nianjingBack()</send>
+  </trigger>
+</triggers>
+</muclient>

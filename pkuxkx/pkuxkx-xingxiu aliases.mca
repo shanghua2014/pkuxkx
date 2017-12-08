@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê ËÄÔÂ 17ÈÕ ÐÇÆÚÒ», ÏÂÎç 8:10 -->
+<!-- MuClient version 4.94 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- aliases -->
+
+<aliases
+   muclient_version="4.94"
+   world_file_version="15"
+   date_saved="2017-04-17 20:10:41"
+  >
+  <alias
+   match="dushu"
+   enabled="y"
+   expand_variables="y"
+   sequence="100"
+  >
+  <send>du @book for 1</send>
+  </alias>
+  <alias
+   match="jmz"
+   enabled="y"
+   sequence="100"
+  >
+  <send>give mu zhang to swnt npc</send>
+  </alias>
+  <alias
+   match="job"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask swnt npc about job</send>
+  </alias>
+  <alias
+   match="jobstart"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>jobStart()</send>
+  </alias>
+  <alias
+   match="sb"
+   enabled="y"
+   sequence="100"
+  >
+  <send>watch Ê¯±Ú</send>
+  </alias>
+  <alias
+   match="tn"
+   enabled="y"
+   sequence="100"
+  >
+  <send>tuna 10</send>
+  </alias>
+  <alias
+   match="xuexi"
+   enabled="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xxStart()</send>
+  </alias>
+  <alias
+   match="xx"
+   enabled="y"
+   expand_variables="y"
+   sequence="100"
+  >
+  <send>xue dizi for @xxWugong 1</send>
+  </alias>
+  <alias
+   match="yj"
+   enabled="y"
+   sequence="100"
+  >
+  <send>yun regenerate</send>
+  </alias>
+  <alias
+   match="yq"
+   enabled="y"
+   sequence="100"
+  >
+  <send>yun regenerate</send>
+  </alias>
+</aliases>
+</muclient>

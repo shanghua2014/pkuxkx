@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê ¶þÔÂ 13ÈÕ ÐÇÆÚÒ», ÏÂÎç 2:56 -->
+<!-- MuClient version 4.12 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="4.12"
+   world_file_version="15"
+   date_saved="2017-02-13 14:56:50"
+  >
+  <variable name="bkName">luo shu</variable>
+  <variable name="dz">1</variable>
+  <variable name="hp_exp">40005</variable>
+  <variable name="hp_jing">170</variable>
+  <variable name="hp_jingEff">170</variable>
+  <variable name="hp_jingMax">170</variable>
+  <variable name="hp_jingli">40</variable>
+  <variable name="hp_jingliMax">40</variable>
+  <variable name="hp_neili">446</variable>
+  <variable name="hp_neiliMax">276</variable>
+  <variable name="hp_qi">95</variable>
+  <variable name="hp_qiEff">328</variable>
+  <variable name="hp_qiMax">328</variable>
+  <variable name="hp_qn">15028</variable>
+  <variable name="zhenwei_1">s</variable>
+  <variable name="zhenwei_2">n</variable>
+  <variable name="zhenwei_3">se</variable>
+  <variable name="zhenwei_4">nw</variable>
+  <variable name="zhenwei_ch">Àë»ð</variable>
+  <variable name="zhenwei_ch1">Î÷±±</variable>
+  <variable name="zhenwei_ch2">Î÷±±</variable>
+  <variable name="zhenwei_ch3">ÄÏ</variable>
+  <variable name="zhenwei_ch4">¶«</variable>
+</variables>
+</muclient>
