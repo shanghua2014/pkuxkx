@@ -1,20 +1,30 @@
-// var str = '2n e 3(sd) 3(nu) w (nd) (eu) (wd) (nu) (wu) (ed) 2(nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n';
+
 // 巡山路径
-SetVariable('path', '2n e 3(sd) 3(nu) w (nd) (eu) (wd) (nu) (wu) (ed) 2(nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n');
-// n(nw)(nd)(wd)(nd)(wd)(sd)(nu) 2(nd)(ed)(wu)(nu)(wd)(eu)(nd) w 3(nu) 3(sd) e 2n
+SetVariable('path', 'nne(sd)(sd)(sd)(nu)(nu)(nu)w(nd)(eu)(wd)(nu)(wu)(ed)(nd)(nd)(nu)(sd)(wd)(nd)(wd)(nd)(nw)n');
 
 // 走过的路径
-DeleteVariable('patrolOver');
-SetVariable('patrolOver', '');
 var	xs = {
 	loading:false,
 	pathBack : '',
+	init : function () {
+		EnableTriggerGroup('house', 1);
+		note('巡山开始！');
+		SetVariable('currentHouse', '');
+		SetVariable('houseList', '');
+		SetVariable('patrolOver', '');
+	},
+	end : function () {
+		EnableTriggerGroup('house', 0);
+	},
+	// 寻山开始
 	go : function () {
+		this.init();
 		var path = GetVariable('path');
 		var patrolOver = GetVariable('patrolOver');
 		var currentIndex = 0;
 		if (patrolOver) {
 			if (!path) {
+				this.end();
 				send('say 巡逻完毕-路径转换中.....');
 				this.pathBack = reversePath(GetVariable('patrolOver'));
 				if (this.loading) {
@@ -24,7 +34,6 @@ var	xs = {
 				}
 				return;
 			}
-			note(path);
 			path = path.split(',');
 			note(path[0]);
 			DoAfterSpecial(.5, path[0], 11);
@@ -38,11 +47,22 @@ var	xs = {
 		SetVariable('path', path);
 		SetVariable('patrolOver', patrolOver);
 	},
-	getHouse : function ( houseNmae ) {
-		var houses = GetVariable('houseName');
-		houses = houses + houseNmae;
-		SetVariable('houseName', houses);
-		// note(homeName);
+	// 记录房间
+	getHouse : function ( houseName ) {
+		var houseList = GetVariable('houseList');
+		note(houseName);
+		if (houseList.indexOf(houseName)<=-1) {
+			note(houseList.indexOf(houseName))
+			houseList = houseName + '|' + houseList;
+			SetVariable('currentHouse', houseName);	//当前房间
+			SetVariable('houseList', houseList); //走过的房间
+			note('没走')
+		} else {
+			this.go();
+			note('走了')
+		}
+		note(houseList);
+		return houseList;
 	}
 };
 
@@ -92,4 +112,26 @@ function reversePath ( path ) {
 	}
 	xs.loading = true;
 	return rpath;
+}
+
+/**
+ * 
+ * @param {string} path 要用node命令
+ */
+function analysePath(path) {
+	var bbb = '';
+	path = path.split(' ');
+	for (var i in path) {
+		for (var j in path[i]) {
+			if (parseInt(path[i][j]) % 10 == path[i][j]) {
+				for (var k = 0; k < path[i][j]; k++) {
+					bbb += path[i].substr(1)
+				}
+				break;
+			} else {
+				bbb += path[i][j];
+			}
+		}
+	}
+	console.log(bbb)
 }

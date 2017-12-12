@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 08ÈÕ ÐÇÆÚÎå, ÏÂÎç 8:07 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 12ÈÕ ÐÇÆÚ¶þ, ÏÂÎç 9:05 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -122,7 +122,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
   >
   <trigger
    enabled="y"
@@ -135,9 +135,8 @@
   <send>say %1,"%10"."%11","%12"</send>
   </trigger>
   <trigger
-   enabled="y"
    group="house"
-   match="^(.*)\s-"
+   match="^(.*)\s-\s$"
    regexp="y"
    send_to="12"
    sequence="100"
@@ -170,7 +169,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>sx.go()</send>
+  <send>xs.go()</send>
   </trigger>
 </triggers>
 
@@ -179,7 +178,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
   >
   <alias
    match="job"
@@ -202,7 +201,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
   >
 </timers>
 
@@ -211,7 +210,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
   >
 
   <macro name="up" type="send_now" >
@@ -305,9 +304,11 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
   >
-  <variable name="path">2n e 3(sd) 3(nu) w (nd) (eu) (wd) (nu) (wu) (ed) 2(nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n</variable>
+  <variable name="currentHouse"></variable>
+  <variable name="houseList"></variable>
+  <variable name="path"></variable>
   <variable name="patrolOver"></variable>
 </variables>
 
@@ -316,7 +317,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
   >
 
 <ansi>
@@ -373,7 +374,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
   >
 
   <key name="0" >
@@ -487,7 +488,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 20:07:08"
+   date_saved="2017-12-12 21:05:30"
   >
 
 <ansi>
@@ -514,7 +515,7 @@
 <!-- plugins -->
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\Pkuxkx_mw_z_order_monitor.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_chat.xml" plugin="y" />
-<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_p2palias_v2016.xml" plugin="y" />
-<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\Show_fullme_×Ô¶¯ËõÐ¡hszÍ¼Æ¬_20170921.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\¶É·ã×´Ì¬²å¼þ20170529.xml" plugin="y" />
+<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\Show_fullme_×Ô¶¯ËõÐ¡hszÍ¼Æ¬_20170921.xml" plugin="y" />
+<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_p2palias_v2016.xml" plugin="y" />
 </muclient>
