@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 13ÈÕ ÐÇÆÚÈý, ÏÂÎç 5:44 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 13ÈÕ ÐÇÆÚÈý, ÏÂÎç 8:03 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -122,7 +122,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
   >
   <trigger
    enabled="y"
@@ -144,6 +144,7 @@
   <send>xs.getHouse("%1")</send>
   </trigger>
   <trigger
+   enabled="y"
    group="xsover"
    match="^\s+»ªÉ½ÅÉÅ®½£ÏÀ\s+ÔÀÁéÉº\(Yue lingshan\)"
    regexp="y"
@@ -190,7 +191,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>xs.go(1)</send>
+  <send>xs.test()</send>
   </trigger>
 </triggers>
 
@@ -199,7 +200,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
   >
   <alias
    match="job"
@@ -222,7 +223,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
   >
 </timers>
 
@@ -231,7 +232,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
   >
 
   <macro name="up" type="send_now" >
@@ -325,12 +326,12 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
   >
   <variable name="currentHouse">ÓñÈªÔº</variable>
   <variable name="houseList">ÓñÈªÔº|»ªÉ½½ÅÏÂ|É¯ÂÜÆº|Çà¿ÂÆº|Ç§³ß´±|°Ù³ßÏ¿|»ªÉ½±ðÔº|ÀÏ¾ý¹µ|â©áø³î|ÉáÉíÑÂ|²ÔÁúÁë|³¯Ñô·å|ÕòÔÀ¹¬|Ð¡Ôº|ºóÉ½Ð¡Â·|ºóÉ½Ð¡Â·|ÓñÅ®ìô|ÓñÅ®·å|Á·Îä³¡|</variable>
-  <variable name="path"></variable>
-  <variable name="patrolOver">n (nw) (nd) (wd) (nd) (wd) (sd) (nu) (nd) (nd) (ed) (nu) (wu) (wd) (eu) (nd) w (nu) (nu) (nu) (sd) (sd) (sd) e n n</variable>
+  <variable name="path">n n e (sd) (sd) (sd) (nu) (nu) (nu) w (nd) (eu) (wd) (nu) (wu) (ed) (nd) (nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n</variable>
+  <variable name="patrolOver">n (nw) (nd) (wd) (nd) (wd) (sd) (nu) (nd) (nd) (ed) (wu) (nu) (wd) (eu) (nd) w (nu) (nu) (nu) (sd) (sd) (sd) e n n</variable>
 </variables>
 
 <!-- colours -->
@@ -338,7 +339,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
   >
 
 <ansi>
@@ -395,7 +396,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
   >
 
   <key name="0" >
@@ -509,7 +510,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:31"
+   date_saved="2017-12-13 20:03:55"
   >
 
 <ansi>

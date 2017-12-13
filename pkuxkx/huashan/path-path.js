@@ -1,6 +1,13 @@
-var str = '后山小路|后山小路|玉女祠|玉女峰|练武场|';
-console.log(str.substr(0,6))
+var str = '(sd) (sd) (sd) ';
+var str2 = '(nw) (wd) (sw) ';
+var tmp = '';
 
+tmp = str2.split(' ');
+str = tmp[0]+' '+str;
+tmp.splice(0,1);
+str2 = tmp;
+console.log(str2)
+return;
 /**
  * 
  * @param {string} path 要用node命令

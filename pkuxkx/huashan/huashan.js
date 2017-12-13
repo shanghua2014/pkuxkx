@@ -6,8 +6,9 @@ SetVariable('path', 'n n e (sd) (sd) (sd) (nu) (nu) (nu) w (nd) (eu) (wd) (nu) (
 var	xs = {
 	loading:false,
 	pathBack : '',
-	delay:2,	// 行走间隔时间
+	delay:1,	// 行走间隔时间
 	init : function () {
+		Send('set brief 2');
 		EnableTriggerGroup('xs', 1);
 		EnableTriggerGroup('xsover', 0);	// 巡逻结束，抓取 岳灵珊，继续接任务
 		note('巡山开始！');
@@ -16,6 +17,7 @@ var	xs = {
 		SetVariable('patrolOver', '');
 	},
 	end : function () {
+		Send('set brief 0');
 		EnableTriggerGroup('xs', 0);
 		EnableTriggerGroup('xsover', 1);
 	},
@@ -63,9 +65,40 @@ var	xs = {
 		}
 		note('已巡逻：'+houseList);
 		return houseList;
+	},
+	// busy处理
+	busy : function () {
+		var path = GetVariable('path');
+		var patrolOver = GetVariable('patrolOver');
+		var tmp = '';
+		tmp = patrolOver.split(' ');
+		path = tmp[0] + ' ' + path;
+		tmp.splice(0, 1);
+		patrolOver = tmp;
+		SetVariable('path', path);
+		SetVariable('patrolOver', patrolOver);
+		timer({name:'busyTimer', time:3, cmd:'xs.test2()', where:12});
 	}
 };
 
+/**
+ * 
+ * @param {object} t 添加定时器
+ * 	t.name 定时器名称
+ * 	t.time 倒计时：秒
+ * 	t.cmd 发送的命令
+ * 	t.where 发送的对象 [12:脚本]
+ * 	t.once 是否只触发一次，默认：是
+ */
+function timer (t) {
+	Addtimer(t.name, 1, 0, 0, "", 5, "");
+	SetTimerOption(t.name, "hour", 0);
+	SetTimerOption(t.name, "minute", 0);
+	SetTimerOption(t.name, "second", t.time);
+	SetTimerOption(t.name, "send_to", t.where);
+	SetTimerOption(t.name, "send", t.cmd);
+	SetTimerOption(t.name, "one_shot", t.once);
+}
 /**
  * 
  * @param {string} path 反转路径
