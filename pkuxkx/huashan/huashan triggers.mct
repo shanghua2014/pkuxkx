@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 08ÈÕ ÐÇÆÚÎå, ÏÂÎç 7:55 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 13ÈÕ ÐÇÆÚÈý, ÏÂÎç 5:44 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -11,7 +11,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 19:55:07"
+   date_saved="2017-12-13 17:44:54"
   >
   <trigger
    enabled="y"
@@ -24,16 +24,26 @@
   <send>say %1,"%10"."%11","%12"</send>
   </trigger>
   <trigger
-   enabled="y"
-   match="^(.*)\s-"
+   group="xs"
+   match="^(.*)\s-\s$"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>xs.getHome(%1)</send>
+  <send>xs.getHouse("%1")</send>
+  </trigger>
+  <trigger
+   group="xsover"
+   match="^\s+»ªÉ½ÅÉÅ®½£ÏÀ\s+ÔÀÁéÉº\(Yue lingshan\)"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>success</send>
   </trigger>
   <trigger
    enabled="y"
+   group="job"
    lines_to_match="2"
    match="^ÄãÏòÔÀÁéÉº´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^ÔÀÁéÉº¶ÔÄãËµµÀ£º×î½ü»ªÉ½ÆÄ²»°²Äþ£¬Äã´ø×ÅÕâ¿éÁîÅÆÈ¥Ñ²ÂßÒ»ÏÂ°É¡£"
    multi_line="y"
@@ -41,10 +51,21 @@
    send_to="12"
    sequence="100"
   >
-  <send>xs.go()</send>
+  <send>xs.go(1)</send>
   </trigger>
   <trigger
-   enabled="y"
+   group="xs"
+   lines_to_match="2"
+   match="^ÄãÏòÔÀÁéÉº´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^ÔÀÁéÉºËµµÀ£º¡¸ÄãÉÏ´ÎÈÎÎñ»¹Ã»ÓÐÍê³ÉÄØ"
+   multi_line="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xs.go(1)</send>
+  </trigger>
+  <trigger
+   group="xs"
    match="^ÄãÔÚ\S+Ñ²ß®£¬ÉÐÎ´·¢ÏÖµÐ×Ù¡£"
    regexp="y"
    send_to="12"
@@ -58,7 +79,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>sx.go()</send>
+  <send>xs.go(1)</send>
   </trigger>
 </triggers>
 </muclient>
