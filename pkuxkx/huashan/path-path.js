@@ -1,11 +1,16 @@
 var str = '(sd) (sd) (sd) ';
-var str2 = '(nw) (wd) (sw) ';
+var str2 = '(nw) (wd) (sw) (nw) (su) ';
 var tmp = '';
 
 tmp = str2.split(' ');
 str = tmp[0]+' '+str;
 tmp.splice(0,1);
-str2 = tmp;
+str2 = '';
+for (var i in tmp) {
+    if (tmp[i]) {
+        str2 += tmp[i]+' ';
+    }
+}
 console.log(str2)
 return;
 /**

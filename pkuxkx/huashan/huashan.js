@@ -1,25 +1,27 @@
+/*---------------- [指点] -----------------*/ 
+var zd = {}
 
-// 巡山路径
-SetVariable('path', 'n n e (sd) (sd) (sd) (nu) (nu) (nu) w (nd) (eu) (wd) (nu) (wu) (ed) (nd) (nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n');
 
+/*---------------- [巡山] -----------------*/ 
 // 走过的路径
 var	xs = {
 	loading:false,
 	pathBack : '',
 	delay:1,	// 行走间隔时间
 	init : function () {
+		SetVariable('path', 'n n e (sd) (sd) (sd) (nu) (nu) (nu) w (nd) (eu) (wd) (nu) (wu) (ed) (nd) (nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n');
 		Send('set brief 2');
 		EnableTriggerGroup('xs', 1);
-		EnableTriggerGroup('xsover', 0);	// 巡逻结束，抓取 岳灵珊，继续接任务
-		note('巡山开始！');
+		EnableTriggerGroup('job', 0);
 		SetVariable('currentHouse', '');
 		SetVariable('houseList', '');
 		SetVariable('patrolOver', '');
+		note('巡山开始！环境初始化成功！');
 	},
 	end : function () {
-		Send('set brief 0');
+		EnableTriggerGroup('job', 1);
 		EnableTriggerGroup('xs', 0);
-		EnableTriggerGroup('xsover', 1);
+		Send('set brief 0');
 	},
 	// 寻山
 	go : function ( init ) {
@@ -51,33 +53,44 @@ var	xs = {
 		SetVariable('path', path);
 		SetVariable('patrolOver', patrolOver);
 	},
+	next: function () {
+
+	},
 	// 记录房间
 	getHouse : function ( houseName ) {
 		var houseList = GetVariable('houseList');
 		if (houseList.indexOf(houseName) <= -1 || houseList.substr(0, 6) == '后山小路|玉') {
+			note('没走');
 			houseList = houseName + '|' + houseList;
 			SetVariable('currentHouse', houseName);	//当前房间
 			SetVariable('houseList', houseList); //走过的房间
-			note('没走')
 		} else {
 			this.go();
-			note('走了')
 		}
-		note('已巡逻：'+houseList);
+		// note('已巡逻：'+houseList);
 		return houseList;
 	},
-	// busy处理
+	/**
+	 * busy处理
+	 * 思路：还原上一步路径，然后添加定时器，过几秒继续走
+	 */
 	busy : function () {
+		note('Busy处理...');
 		var path = GetVariable('path');
 		var patrolOver = GetVariable('patrolOver');
 		var tmp = '';
 		tmp = patrolOver.split(' ');
-		path = tmp[0] + ' ' + path;
+		path = tmp[0] + ',' + path;
 		tmp.splice(0, 1);
-		patrolOver = tmp;
+		patrolOver = '';
+		for (var i in tmp) {
+			if (tmp[i]) {
+				patrolOver += tmp[i] + ' ';
+			}
+		}
 		SetVariable('path', path);
 		SetVariable('patrolOver', patrolOver);
-		timer({name:'busyTimer', time:3, cmd:'xs.test2()', where:12});
+		timer({name:'busyTimer', time:3, cmd:'xs.go()', where:12});
 	}
 };
 

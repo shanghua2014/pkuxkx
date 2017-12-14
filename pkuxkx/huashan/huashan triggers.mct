@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 13ÈÕ ÐÇÆÚÈý, ÏÂÎç 5:44 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 14ÈÕ ÐÇÆÚËÄ, ÏÂÎç 1:40 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -11,7 +11,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-13 17:44:54"
+   date_saved="2017-12-14 13:40:44"
   >
   <trigger
    enabled="y"
@@ -19,9 +19,10 @@
    match="#(\d+),(\d+),(\d+),(\d+),(\d+),(\d+)\n#(\d+),(\d+),(\d+),(\d+),(\d+),(\d+)"
    multi_line="y"
    regexp="y"
+   send_to="2"
    sequence="100"
   >
-  <send>say %1,"%10"."%11","%12"</send>
+  <send>%1,"%10"."%11","%12"</send>
   </trigger>
   <trigger
    group="xs"
@@ -33,13 +34,33 @@
   <send>xs.getHouse("%1")</send>
   </trigger>
   <trigger
-   group="xsover"
+   enabled="y"
+   group="job"
    match="^\s+»ªÉ½ÅÉÅ®½£ÏÀ\s+ÔÀÁéÉº\(Yue lingshan\)"
    regexp="y"
    send_to="10"
    sequence="100"
   >
   <send>success</send>
+  </trigger>
+  <trigger
+   group="xs"
+   match="^ÄãµÄ¶¯×÷»¹Ã»ÓÐÍê³É£¬²»ÄÜÒÆ¶¯¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xs.busy()</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="job"
+   match="^Äã¸øÔÀÁéÉºÒ»¿éÁîÅÆ¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(3, '(ask yue about job)(hpbrief)', 11);</send>
   </trigger>
   <trigger
    enabled="y"
@@ -52,6 +73,18 @@
    sequence="100"
   >
   <send>xs.go(1)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="job"
+   lines_to_match="2"
+   match="^ÄãÏòÔÀÁéÉº´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^ÔÀÁéÉºËµµÀ£º¡¸Äã¸Õ¸Õ×ö¹ýÈÎÎñ£¬ÏÈÈ¥ÐÝÏ¢Ò»»á°É¡£¡¹"
+   multi_line="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(30, 'job', 10);</send>
   </trigger>
   <trigger
    group="xs"
@@ -75,11 +108,28 @@
   </trigger>
   <trigger
    enabled="y"
+   group="job"
+   match="^ÆÃÆ¤Ò»°ÑÀ¹×¡Äã£ºÒªÏò´Ó´Ë¹ý£¬ÁôÏÂÂòÂ·²Æ£¡ÆÃÆ¤Ò»°ÑÀ­×¡ÁËÄã¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(10, '(sd)(eu)(wd)(su)(east)(sd)(sd)(sd)(nu)(nu)(nu)(west)(south)(south)', 11);</send>
+  </trigger>
+  <trigger
+   group="xs"
+   match="^ÆÃÆ¤Ò»°ÑÀ¹×¡Äã£ºÒªÏò´Ó´Ë¹ý£¬ÁôÏÂÂòÂ·²Æ£¡ÆÃÆ¤Ò»°ÑÀ­×¡ÁËÄã¡£"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xs.busy()</send>
+  </trigger>
+  <trigger
    match="ÄãËµµÀ£º¡¸haha¡¹"
    send_to="12"
    sequence="100"
   >
-  <send>xs.go(1)</send>
+  <send>xs.busy()</send>
   </trigger>
 </triggers>
 </muclient>
