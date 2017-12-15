@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 14ÈÕ ÐÇÆÚËÄ, ÏÂÎç 1:40 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 15ÈÕ ÐÇÆÚÎå, ÏÂÎç 11:13 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -122,7 +122,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
   >
   <trigger
    enabled="y"
@@ -145,8 +145,58 @@
   <send>xs.getHouse("%1")</send>
   </trigger>
   <trigger
-   enabled="y"
-   group="job"
+   expand_variables="y"
+   group="zd"
+   match="^@npcName³ÃÄã²»×¢Òâ£¬Ò»ÁïÑÌ²»ÖªµÀÅÜµ½ÄÄÀïÈ¥ÁË¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>zd.find(1)</send>
+  </trigger>
+  <trigger
+   expand_variables="y"
+   group="zd_find"
+   match="^@npcNameµÀ£ººÃ°É£¬ºÃ°É£¬ÎÒ»ØÈ¥»¹²»ÐÐ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>zd.back()</send>
+  </trigger>
+  <trigger
+   expand_variables="y"
+   group="zd_find"
+   match="^@npcNameµÀ£ºÐÝÏ¢Ò»»áÐÐ²»ÐÐ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(3, 'ask student about gen', 10);</send>
+  </trigger>
+  <trigger
+   expand_variables="y"
+   group="zd"
+   match="^@npcNameÒ»ÕÐÒ»Ê½ÓÐ°åÓÐÑÛ£¬Äã¿ÉÒÔ»ØÈ¥ºÍÄþÖÐÔò¸´Ãü"
+   regexp="y"
+   send_to="11"
+   sequence="100"
+  >
+  <send>3w (ask ning about Íê³É)</send>
+  </trigger>
+  <trigger
+   expand_variables="y"
+   group="zd_find"
+   match="^\s+@username½Ìµ¼µÄ»ªÉ½µÜ×Ó\S*"
+   regexp="y"
+   send_to="9"
+   sequence="100"
+   variable="is_find"
+  >
+  <send>1</send>
+  </trigger>
+  <trigger
+   group="xs_job"
    match="^\s+»ªÉ½ÅÉÅ®½£ÏÀ\s+ÔÀÁéÉº\(Yue lingshan\)"
    regexp="y"
    send_to="10"
@@ -164,8 +214,26 @@
   <send>xs.busy()</send>
   </trigger>
   <trigger
+   group="zd_find"
+   match="^ÄãµÄ¶¯×÷»¹Ã»ÓÐÍê³É£¬²»ÄÜÒÆ¶¯¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xs.busy()</send>
+  </trigger>
+  <trigger
    enabled="y"
-   group="job"
+   group="zd_job"
+   match="^Äã·ÅÆúÁË»ªÉ½ÅÉµÄËÍÀñÈÎ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(20, 'n_job', 10);</send>
+  </trigger>
+  <trigger
+   group="xs_job"
    match="^Äã¸øÔÀÁéÉºÒ»¿éÁîÅÆ¡£"
    regexp="y"
    send_to="12"
@@ -174,8 +242,29 @@
   <send>DoAfterSpecial(3, '(ask yue about job)(hpbrief)', 11);</send>
   </trigger>
   <trigger
+   expand_variables="y"
+   group="zd"
+   match="^Äã¿ªÊ¼Ö¸µã@npcName»ªÉ½ÅÉµÄÎäÑ§¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>zd.start()</send>
+  </trigger>
+  <trigger
    enabled="y"
-   group="job"
+   group="zd_job"
+   lines_to_match="2"
+   match="^ÄãÏòÄþÖÐÔò´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^(\S*)¾ö¶¨¿ªÊ¼¸úËæÄãÒ»ÆðÐÐ¶¯¡£"
+   multi_line="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>zd.ready("%1")</send>
+  </trigger>
+  <trigger
+   group="xs_job"
    lines_to_match="2"
    match="^ÄãÏòÔÀÁéÉº´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^ÔÀÁéÉº¶ÔÄãËµµÀ£º×î½ü»ªÉ½ÆÄ²»°²Äþ£¬Äã´ø×ÅÕâ¿éÁîÅÆÈ¥Ñ²ÂßÒ»ÏÂ°É¡£"
    multi_line="y"
@@ -186,8 +275,7 @@
   <send>xs.go(1)</send>
   </trigger>
   <trigger
-   enabled="y"
-   group="job"
+   group="xs_job"
    lines_to_match="2"
    match="^ÄãÏòÔÀÁéÉº´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^ÔÀÁéÉºËµµÀ£º¡¸Äã¸Õ¸Õ×ö¹ýÈÎÎñ£¬ÏÈÈ¥ÐÝÏ¢Ò»»á°É¡£¡¹"
    multi_line="y"
@@ -209,6 +297,15 @@
   <send>xs.go(1)</send>
   </trigger>
   <trigger
+   group="zd"
+   match="^ÄãÒÑ¾­Í¨¹ý»ªÉ½ÅÉÈëÃÅÈÎÎñ»ñµÃÁË"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(1, 'n_job', 10);</send>
+  </trigger>
+  <trigger
    group="xs"
    match="^ÄãÔÚ\S+Ñ²ß®£¬ÉÐÎ´·¢ÏÖµÐ×Ù¡£"
    regexp="y"
@@ -218,6 +315,33 @@
   <send>xs.go()</send>
   </trigger>
   <trigger
+   group="zd"
+   match="^ÄãÕýÃ¦×ÅÄØ¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>zd.zdBusy();</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="zd_job"
+   match="^ÄþÖÐÔò¸øÁËÄãÒ»°üÀñÎï"
+   regexp="y"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="zd_job"
+   match="^ÄþÖÐÔòËµµÀ£º¡¸Äã¸Õ¸Õ×ö¹ýÈÎÎñ£¬ÏÈÈ¥ÐÝÏ¢Ò»»á"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfterSpecial(20, 'n_job', 10);</send>
+  </trigger>
+  <trigger
    group="xs"
    match="^ÆÃÆ¤Ò»°ÑÀ¹×¡Äã£ºÒªÏò´Ó´Ë¹ý£¬ÁôÏÂÂòÂ·²Æ£¡ÆÃÆ¤Ò»°ÑÀ­×¡ÁËÄã¡£"
    send_to="12"
@@ -226,8 +350,7 @@
   <send>xs.busy()</send>
   </trigger>
   <trigger
-   enabled="y"
-   group="job"
+   group="xs_job"
    match="^ÆÃÆ¤Ò»°ÑÀ¹×¡Äã£ºÒªÏò´Ó´Ë¹ý£¬ÁôÏÂÂòÂ·²Æ£¡ÆÃÆ¤Ò»°ÑÀ­×¡ÁËÄã¡£"
    regexp="y"
    send_to="12"
@@ -236,11 +359,21 @@
   <send>DoAfterSpecial(10, '(sd)(eu)(wd)(su)(east)(sd)(sd)(sd)(nu)(nu)(nu)(west)(south)(south)', 11);</send>
   </trigger>
   <trigger
+   enabled="y"
    match="ÄãËµµÀ£º¡¸haha¡¹"
    send_to="12"
    sequence="100"
   >
-  <send>xs.busy()</send>
+  <send>zd.find(1)</send>
+  </trigger>
+  <trigger
+   group="zd_find"
+   match="^(.*)\s-\s$"
+   regexp="y"
+   send_to="12"
+   sequence="101"
+  >
+  <send>zd.getHouse()</send>
   </trigger>
 </triggers>
 
@@ -249,7 +382,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
   >
   <alias
    match="job"
@@ -257,6 +390,28 @@
    sequence="100"
   >
   <send>ask yue about job</send>
+  </alias>
+  <alias
+   match="n_job"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask ning about job</send>
+  </alias>
+  <alias
+   match="n_success"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask ning about Íê³É</send>
+  </alias>
+  <alias
+   match="stop"
+   enabled="y"
+   send_to="1"
+   sequence="100"
+  >
+  <send>#EnableTriggerGroup('zd_find', 0);#EnableTriggerGroup('zd', 0);#EnableTriggerGroup('xs', 0);</send>
   </alias>
   <alias
    match="success"
@@ -272,7 +427,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
   >
 </timers>
 
@@ -281,7 +436,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
   >
 
   <macro name="up" type="send_now" >
@@ -375,12 +530,13 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
   >
-  <variable name="currentHouse">ÓñÈªÔº</variable>
-  <variable name="houseList">ÓñÈªÔº|»ªÉ½½ÅÏÂ|É¯ÂÜÆº|Çà¿ÂÆº|Ç§³ß´±|°Ù³ßÏ¿|»ªÉ½±ðÔº|ÀÏ¾ý¹µ|â©áø³î|ÉáÉíÑÂ|²ÔÁúÁë|³¯Ñô·å|ÕòÔÀ¹¬|Ð¡Ôº|ºóÉ½Ð¡Â·|ºóÉ½Ð¡Â·|ÓñÅ®ìô|ÓñÅ®·å|Á·Îä³¡|</variable>
-  <variable name="path"></variable>
-  <variable name="patrolOver">n (nw) (nd) (wd) (nd) (wd) (sd) (nu) (nd) (nd) (ed) (wu) (nu) (wd) (eu) (nd) w (nu) (nu) (nu) (sd) (sd) (sd) e n n </variable>
+  <variable name="is_find">0</variable>
+  <variable name="npcName">ÃÏÎÞÒÇ</variable>
+  <variable name="patrolOver"> n e w (nw) (nd) (wd) (nd) (wd) (sd) (nu) (nd) (nd) (ed) (wu) (nu) (ed) (wu) (wd) (eu) (nd) w (nu) (nu) (nu) (sd) (sd) (sd) e n n n e n s w n s w</variable>
+  <variable name="username">ÊÖÀïÓÐ¸ö½£</variable>
+  <variable name="zd_path"></variable>
 </variables>
 
 <!-- colours -->
@@ -388,7 +544,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
   >
 
 <ansi>
@@ -445,7 +601,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
   >
 
   <key name="0" >
@@ -559,7 +715,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-14 13:40:33"
+   date_saved="2017-12-15 23:13:35"
   >
 
 <ansi>

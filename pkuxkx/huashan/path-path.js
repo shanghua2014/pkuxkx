@@ -1,18 +1,8 @@
-var str = '(sd) (sd) (sd) ';
-var str2 = '(nw) (wd) (sw) (nw) (su) ';
-var tmp = '';
 
-tmp = str2.split(' ');
-str = tmp[0]+' '+str;
-tmp.splice(0,1);
-str2 = '';
-for (var i in tmp) {
-    if (tmp[i]) {
-        str2 += tmp[i]+' ';
-    }
-}
-console.log(str2)
-return;
+
+// w 3n e 3(sd) 3(nu) w (nd) (eu) (wd) (wu) (ed) (nu) (wu) (ed) 2(nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) (w) (e) (n) 
+// w n n n e (sd) (sd) (sd) (nu) (nu) (nu) w (nd) (eu) (wd) (wu) (ed) (nu) (wu) (ed) (nd) (nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) w e n
+analysePath('w 3n e 3(sd) 3(nu) w (nd) (eu) (wd) (wu) (ed) (nu) (wu) (ed) 2(nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) w e n')
 /**
  * 
  * @param {string} path 要用node命令
@@ -32,9 +22,9 @@ function analysePath(path) {
             }
         }
     }
-    // console.log(bbb)
+    console.log(bbb)
 }
-// reversePath('n (nw) (nd) (wd) (nd) (wd) (sd) (nu) (nd) (nd) (ed) (wu) (nu) (wd) (eu) (nd) w (nu) (nu) (nu) (sd) (sd) (sd) e n n')
+reversePath('(nd) (wd) (sd) (nu) (nd) (nd) (ed) (wu) (nu) (ed) (wu) (wd) (eu) (nd) w (nu) (nu) (nu) (sd) (sd) (sd) e n n n e n s w n s w')
 function reversePath(path) {
     var rpath = '';
     path = path.split(' ');

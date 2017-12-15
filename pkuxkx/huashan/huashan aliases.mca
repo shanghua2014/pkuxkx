@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 08ÈÕ ÐÇÆÚÎå, ÏÂÎç 7:30 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 15ÈÕ ÐÇÆÚÎå, ÏÂÎç 10:36 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -11,7 +11,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-08 19:30:31"
+   date_saved="2017-12-15 22:36:05"
   >
   <alias
    match="job"
@@ -19,6 +19,27 @@
    sequence="100"
   >
   <send>ask yue about job</send>
+  </alias>
+  <alias
+   match="n_job"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask ning about job</send>
+  </alias>
+  <alias
+   match="n_success"
+   enabled="y"
+   sequence="100"
+  >
+  <send>ask ning about Íê³É</send>
+  </alias>
+  <alias
+   match="stop"
+   enabled="y"
+   sequence="100"
+  >
+  <send>#EnableTriggerGroup('zd_find', 0);#EnableTriggerGroup('zd', 0);#EnableTriggerGroup('xs', 0);</send>
   </alias>
   <alias
    match="success"

@@ -1,63 +1,145 @@
-/*---------------- [指点] -----------------*/ 
-var zd = {}
+
+
+/*---------------- [指点] -----------------*/
+var zd = {
+	zd_pathBack:'',
+	delay:1.5,
+	zd:'zhidian student',
+	loading:false,
+	init : function () {
+		SetVariable('zd_path', 'w s n w w e s n e n n n e (sd) (sd) (sd) (nu) (nu) (nu) w (nd) (eu) (wd) (wu) (ed) (nu) (wu) (ed) (nd) (nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) w e n');
+		SetVariable('is_find', 0);
+		EnableTriggerGroup('zd_find', 1);
+		EnableTriggerGroup('zd', 0);
+		public_init();
+		note('环境初始化成功！寻找开始！');
+	},
+	// 准备中
+	ready:function (npcName) {
+		EnableTriggerGroup('zd_find', 0);
+		EnableTriggerGroup('zd', 1);
+		SetVariable('npcName', npcName);
+		DoAfterSpecial(.5, '3e', 11);
+		DoAfterSpecial(this.delay, this.zd, 0);
+	},
+	// 指点中
+	start : function () {
+		DoAfterSpecial(this.delay, this.zd, 0);
+	},
+	// 寻找弟子中
+	find: function (init) {
+		if (init) { this.init(); note('跑了，去追');}
+		note('继续找');
+		var zd_path = GetVariable('zd_path');
+		var is_find = GetVariable('is_find');
+		var patrolOver = GetVariable('patrolOver');
+		
+		if (is_find == 0) {
+			if (patrolOver) {
+				zd_path = zd_path.split(',');
+				DoAfterSpecial(this.delay, zd_path[0], 11);
+				patrolOver = zd_path.splice(0, 1) + ' ' + patrolOver;
+			} else {
+				zd_path = zd_path.split(' ');
+				DoAfterSpecial(this.delay, zd_path[0], 11);
+				patrolOver = zd_path.splice(0, 1);
+				note('===>::' + patrolOver);
+			}
+			SetVariable('zd_path', zd_path);
+			SetVariable('patrolOver', patrolOver);
+		} else {
+			note('找到了-路径转换中.....');
+			this.zd_pathBack =  reversePath(GetVariable('patrolOver'), this);
+			if (this.loading) {
+				note('路径已就绪-准备驯服.....');
+				DoAfterSpecial(this.delay, 'ask student about gen', 0);
+				note(this.zd_pathBack);
+			}
+			return;
+		}
+	},
+	// 记录房间
+	getHouse: function () {
+		DoAfterSpecial(.3, 'zd.find()', 12);
+	},
+	// 带回弟子中
+	back: function () {
+		EnableTriggerGroup('zd_find', 0);
+		EnableTriggerGroup('zd', 1);
+		DoAfterSpecial(1, '3', 2);
+		DoAfterSpecial(2, '2', 2);
+		DoAfterSpecial(3, '1', 2);
+		DoAfterSpecial(4, '走吧', 2);
+		DoAfterSpecial(5, this.zd_pathBack+' (zhidian student)', 11);
+	},
+	// 指点弟子完成
+	over:function () {
+		DoAfterSpecial(1, '3e (ask ning about 完成)', 11);
+	},
+	zdBusy:function () {
+		note('Busy处理...');
+		timer({ name: 'busyTimer', time: 2, cmd: 'zd.start()', where: 12 });
+	},
+	// 关闭所有指点任务相关触发
+	close : function () {
+		EnableTriggerGroup('zd', 0);
+		EnableTriggerGroup('zd_find', 0);
+	}
+}
 
 
 /*---------------- [巡山] -----------------*/ 
 // 走过的路径
-var	xs = {
-	loading:false,
-	pathBack : '',
-	delay:1,	// 行走间隔时间
-	init : function () {
-		SetVariable('path', 'n n e (sd) (sd) (sd) (nu) (nu) (nu) w (nd) (eu) (wd) (nu) (wu) (ed) (nd) (nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n');
+var xs = {
+	loading: false,
+	xs_pathBack: '',
+	delay: 1,	// 行走间隔时间
+	init: function () {
+		SetVariable('xs_path', 'n n e (sd) (sd) (sd) (nu) (nu) (nu) w (nd) (eu) (wd) (nu) (wu) (ed) (nd) (nd) (nu) (sd) (wd) (nd) (wd) (nd) (nw) n');
 		Send('set brief 2');
 		EnableTriggerGroup('xs', 1);
-		EnableTriggerGroup('job', 0);
+		EnableTriggerGroup('xs_job', 0);
+		public_init();
 		SetVariable('currentHouse', '');
 		SetVariable('houseList', '');
-		SetVariable('patrolOver', '');
-		note('巡山开始！环境初始化成功！');
+		note('环境初始化成功！巡山开始！');
 	},
-	end : function () {
-		EnableTriggerGroup('job', 1);
+	end: function () {
+		EnableTriggerGroup('xs_job', 1);
 		EnableTriggerGroup('xs', 0);
 		Send('set brief 0');
 	},
 	// 寻山
-	go : function ( init ) {
+	go: function (init) {
 		if (init) this.init();
-		var path = GetVariable('path');
+		var xs_path = GetVariable('xs_path');
 		var patrolOver = GetVariable('patrolOver');
-		var currentIndex = 0;
 		if (patrolOver) {
-			if (!path) {
+			if (!xs_path) {
 				this.end();
 				note('巡逻完毕-路径转换中.....');
-				this.pathBack = reversePath(GetVariable('patrolOver'));
+				this.xs_pathBack =  reversePath(GetVariable('patrolOver'), this);
 				if (this.loading) {
 					note('say 路径已就绪-开始回家.....');
-					note(this.pathBack);
-					DoAfterSpecial(2, this.pathBack, 11);
+					note(this.xs_pathBack);
+					DoAfterSpecial(2, this.xs_pathBack, 11);
 				}
 				return;
 			}
-			path = path.split(',');
-			DoAfterSpecial(this.delay, path[0], 11);
-			patrolOver = path.splice(0, 1) + ' ' + patrolOver;
+			xs_path = xs_path.split(',');
+			DoAfterSpecial(this.delay, xs_path[0], 11);
+			patrolOver = xs_path.splice(0, 1) + ' ' + patrolOver;
 		} else {
-			path = path.split(' ');
-			DoAfterSpecial(this.delay, path[0], 11);
-			patrolOver = path.splice(0, 1);
-			note('--'+patrolOver);
+			xs_path = xs_path.split(' ');
+			DoAfterSpecial(this.delay, xs_path[0], 11);
+			patrolOver = xs_path.splice(0, 1);
+			note('--' + patrolOver);
 		}
-		SetVariable('path', path);
+		SetVariable('xs_path', xs_path);
 		SetVariable('patrolOver', patrolOver);
 	},
-	next: function () {
-
-	},
 	// 记录房间
-	getHouse : function ( houseName ) {
+	getHouse: function (houseName) {
 		var houseList = GetVariable('houseList');
 		if (houseList.indexOf(houseName) <= -1 || houseList.substr(0, 6) == '后山小路|玉') {
 			note('没走');
@@ -74,13 +156,13 @@ var	xs = {
 	 * busy处理
 	 * 思路：还原上一步路径，然后添加定时器，过几秒继续走
 	 */
-	busy : function () {
+	busy: function () {
 		note('Busy处理...');
-		var path = GetVariable('path');
+		var xs_path = GetVariable('xs_path');
 		var patrolOver = GetVariable('patrolOver');
 		var tmp = '';
 		tmp = patrolOver.split(' ');
-		path = tmp[0] + ',' + path;
+		xs_path = tmp[0] + ',' + xs_path;
 		tmp.splice(0, 1);
 		patrolOver = '';
 		for (var i in tmp) {
@@ -88,12 +170,33 @@ var	xs = {
 				patrolOver += tmp[i] + ' ';
 			}
 		}
-		SetVariable('path', path);
+		SetVariable('xs_path', xs_path);
 		SetVariable('patrolOver', patrolOver);
-		timer({name:'busyTimer', time:3, cmd:'xs.go()', where:12});
+		timer({ name: 'busyTimer', time: 3, cmd: 'xs.go()', where: 12 });
+	},
+	// 关闭所有巡山任务相关触发
+	close: function () {
+		EnableTriggerGroup('xs_job', 0);
+		EnableTriggerGroup('xs', 0);
 	}
 };
 
+// 加载脚本时，关闭所有任务触发
+xs.close();
+// zd.close();
+note('====== 所有触发已关闭，请启动相关任务！');
+note('====== 注意：');
+note('====== 1、请将username变量设置成你的姓名！');
+
+
+//--------------------------------------------
+//| 公共方法
+//--------------------------------------------
+function public_init () {
+	// 初始化共用变量
+	Send('set brief 2');
+	SetVariable('patrolOver', '');
+}
 /**
  * 
  * @param {object} t 添加定时器
@@ -116,7 +219,7 @@ function timer (t) {
  * 
  * @param {string} path 反转路径
  */
-function reversePath ( path ) {
+function reversePath ( path, object ) {
 	var rpath = '';
 	path = path.split(' ');
 	for (var i = 0; i < path.length; i++) {
@@ -164,6 +267,6 @@ function reversePath ( path ) {
 			}
 		}
 	}
-	xs.loading = true;
+	object.loading = true;
 	return rpath;
 }

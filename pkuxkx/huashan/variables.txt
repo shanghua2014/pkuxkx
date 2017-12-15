@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê Ê®¶þÔÂ 15ÈÕ ÐÇÆÚÎå, ÏÂÎç 7:24 -->
+<!-- MuClient version 5.05 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.05"
+   world_file_version="15"
+   date_saved="2017-12-15 19:24:49"
+  >
+  <variable name="username"></variable>
+</variables>
+</muclient>
