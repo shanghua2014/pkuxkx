@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on 2017Äê Ê®¶þÔÂ 20ÈÕ ÐÇÆÚÈý, ÏÂÎç 3:35 -->
+<!-- MuClient version 5.05 -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+<muclient>
+
+<!-- timers -->
+
+<timers
+   muclient_version="5.05"
+   world_file_version="15"
+   date_saved="2017-12-20 15:35:54"
+  >
+  <timer name="sleepT" second="5.00" offset_second="0.00" group="dz" >
+  <send>hpbrief</send>
+
+  </timer>
+</timers>
+</muclient>

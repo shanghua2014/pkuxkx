@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê ¶þÔÂ 13ÈÕ ÐÇÆÚÒ», ÏÂÎç 2:56 -->
-<!-- MuClient version 4.12 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 20ÈÕ ÐÇÆÚÈý, ÉÏÎç 11:10 -->
+<!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
 <muclient>
@@ -9,9 +9,9 @@
 <!-- triggers -->
 
 <triggers
-   muclient_version="4.12"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-02-13 14:56:44"
+   date_saved="2017-12-20 11:10:39"
   >
   <trigger
    enabled="y"
@@ -44,7 +44,6 @@
   <send>login()</send>
   </trigger>
   <trigger
-   enabled="y"
    group="pingjob"
    match="^³µ·ò¸æËßÄã£º¡°µ½À²£¬ÕâÀï¾ÍÊÇ¹éÔÆ×¯¡£¡±"
    regexp="y"
@@ -54,7 +53,6 @@
   <send>enter;nu;nu;e;e;lujob</send>
   </trigger>
   <trigger
-   enabled="y"
    group="lujob"
    match="^Â½³Ë·çËµµÀ£º¡¸\S+£¬ÎÒÎªÄãÕ¼µÃÒ»ØÔ£º(.*)¡£¡¹$"
    regexp="y"
@@ -64,7 +62,6 @@
   <send>getZhenweiCH("%1")</send>
   </trigger>
   <trigger
-   enabled="y"
    group="lujob"
    match="^Â½³Ë·çËµµÀ£º¡¸Ã»¿´ÎÒÕýÃ¦×ÅÂï£¿¡¹"
    regexp="y"
@@ -74,7 +71,6 @@
   <send>DoAfterSpecial(2,'lujob',10)</send>
   </trigger>
   <trigger
-   enabled="y"
    group="lujob"
    match="^Â½³Ë·çËµµÀ£º¡¸ÄãµÄÄÚÁ¦Ì«µÍ£¬¶à³éµãÊ±¼ä´ò×ø°É¡£¡¹"
    regexp="y"
@@ -93,7 +89,6 @@
   <send>(set brief 1)(l tu)</send>
   </trigger>
   <trigger
-   enabled="y"
    group="lujob"
    match="^Â½³Ë·çËµµÀ£º¡¸ÎÒÅÉÎäÑ§¶à½¨Á¢ÔÚÆæÃÅ°ËØÔµÄ»ù´¡ÉÏ*"
    regexp="y"
@@ -138,15 +133,6 @@
   <send>n;n;n;e;sleep</send>
   </trigger>
   <trigger
-   group="ludu"
-   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
-   regexp="y"
-   send_to="12"
-   sequence="100"
-  >
-  <send>du_sleep('sleep')</send>
-  </trigger>
-  <trigger
    enabled="y"
    group="dazuo"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
@@ -154,7 +140,16 @@
    send_to="12"
    sequence="100"
   >
-  <send>du_sleep('dazuo 10')</send>
+  <send>dz.sleepDelay()</send>
+  </trigger>
+  <trigger
+   group="ludu"
+   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>du_sleep('sleep')</send>
   </trigger>
   <trigger
    group="guozhen"
@@ -223,11 +218,12 @@
   <trigger
    enabled="y"
    group="dazuo"
-   match="^ÄãÏÖÔÚµÄÆøÌ«ÉÙÁË£¬ÎÞ·¨²úÉúÄÚÏ¢ÔËÐÐÈ«Éí¾­Âö¡£$"
+   match="^ÄãÏÖÔÚµÄÆøÌ«ÉÙÁË£¬ÎÞ·¨²úÉúÄÚÏ¢ÔËÐÐÈ«Éí¾­Âö"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
-  <send>sleep</send>
+  <send>dz.sleep(1)</send>
   </trigger>
   <trigger
    group="ludu"
@@ -279,11 +275,12 @@
   <trigger
    enabled="y"
    group="dazuo"
-   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å¡£$"
+   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
-  <send>dazuo 10</send>
+  <send>dz.sleep(0)</send>
   </trigger>
   <trigger
    enabled="y"
@@ -293,7 +290,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>doafter(.3, 'dazuo 10')</send>
+  <send>doafter(.5, 'dazuo 10');</send>
   </trigger>
   <trigger
    enabled="y"
@@ -325,7 +322,6 @@
   <send>du_get_book("%1")</send>
   </trigger>
   <trigger
-   enabled="y"
    group="pingjob"
    match="^ÄãÖ±ÆðÑü£¬ÉîÉîµØÎüÁËÒ»¿ÚÆø¡£"
    regexp="y"
@@ -335,7 +331,6 @@
   <send>s;give ping yao</send>
   </trigger>
   <trigger
-   enabled="y"
    group="pingjob"
    match="^Æ½Ò»Ö¸ËµµÀ£º¡¸ÎÒÃÇÏÖÔÚÕýºÃÈ±ÉÙÒ»ÖÖÒ©£¬ÕâÊÇÒ©·½£¬ÄãÈ¥Åä°É¡¹"
    regexp="y"
@@ -345,7 +340,6 @@
   <send>n;hp;peiyao</send>
   </trigger>
   <trigger
-   enabled="y"
    group="pingjob"
    match="^Æ½Ò»Ö¸ËµµÀ£º¡¸ÔÚÎÒÕâÀïÅäÒ©Ì«ÂñÃ»ÄúÀ­£¬Äú»¹ÊÇÈ¥¸Éµã±ðµÄ°É¡£¡¹"
    regexp="y"
@@ -355,7 +349,6 @@
   <send>s;travel gy</send>
   </trigger>
   <trigger
-   enabled="y"
    group="pingjob"
    match="^Æ½Ò»Ö¸Ð¦ºÇºÇ½Ó¹ýÄãÅäºÃµÄÒ©£¬Ëµ£ºÐ»Ð»ÕâÎ»Ð¡¹ÃÄï"
    regexp="y"

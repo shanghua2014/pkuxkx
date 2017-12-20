@@ -1,0 +1,17 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]
+
+"Arial"="Lantinghei.ttc"
+
+"Lucida Sans Unicode"="Lantinghei.ttc"
+
+"Microsoft Sans Serif"="Lantinghei.ttc"
+
+"MS Sans Serif"="Lantinghei.ttc"
+
+"SimSun"="Lantinghei.ttc"
+
+"Tahoma"="Lantinghei.ttc"
+
+"Tahoma Bold"="Lantinghei.ttc"

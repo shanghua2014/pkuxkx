@@ -1160,7 +1160,7 @@ function hp_status(n,l,w)
 		WindowCreate (hp_win, 0, 0, hp_win_width, hp_win_height, miniwin.pos_bottom_left, 0, 0x000010)
 		movewindow.save_state(hp_win)
 		movewindow.add_drag_handler (hp_win, 0, 0, hp_win_width, 30)
-		WindowFont (hp_win, FONT_NAME, "Arial", FONT_SIZE)
+		WindowFont (hp_win, FONT_NAME, "Î¢ÈíÑÅºÚ", FONT_SIZE)
 		hp_draw_win()
 		show_skill_win=true
 	end
@@ -1204,13 +1204,13 @@ function OnPluginInstall ()
 	local skill_win_info = movewindow.install (skill_win, miniwin.pos_top_left, miniwin.create_absolute_location, true)
 	WindowCreate(skill_win, skill_win_info.window_left, skill_win_info.window_top, hp_win_width, hp_win_height, skill_win_info.window_mode, skill_win_info.window_flags, 0x000010)
 	movewindow.add_drag_handler (skill_win, 0, 0, skill_win_width, 30)
-	WindowFont (skill_win, FONT_NAME, "Arial", FONT_SIZE)
+	WindowFont (skill_win, FONT_NAME, "Î¢ÈíÑÅºÚ", FONT_SIZE)
 	
 	WindowCreate (hp_win, 0, 0, hp_win_width, hp_win_height, miniwin.pos_bottom_left, 0, 0x000010)
 	local hp_win_info = movewindow.install (hp_win, miniwin.pos_bottom_left, miniwin.create_absolute_location, true)
 	WindowCreate(hp_win, hp_win_info.window_left, hp_win_info.window_top, hp_win_width, hp_win_height, hp_win_info.window_mode, hp_win_info.window_flags, 0x000010)
 	movewindow.add_drag_handler (hp_win, 0, 0, hp_win_width, 30)
-	WindowFont (hp_win, FONT_NAME, "Arial", FONT_SIZE)
+	WindowFont (hp_win, FONT_NAME, "Î¢ÈíÑÅºÚ", FONT_SIZE)
 end
 
 function OnPluginClose ()
