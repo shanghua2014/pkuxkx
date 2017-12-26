@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 20ÈÕ ÐÇÆÚÈý, ÏÂÎç 3:50 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 26ÈÕ ÐÇÆÚ¶þ, ÏÂÎç 6:07 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -19,7 +19,7 @@
    mapping_failure="Alas, you cannot go that way."
    name="taohua"
    new_activity_sound="(No sound)"
-   output_font_name="ÎÄÈªæäÎ¢Ã×ºÚ"
+   output_font_name="ËÎÌå"
    script_editor="C:\Program Files\Sublime Text 2.0.2 x64\sublime_text.exe"
    script_editor_argument="%file"
    script_filename="Z:\Users\shanghua\MUSHclient\pkuxkx\taohua\taohua.js"
@@ -61,6 +61,7 @@
    enable_triggers="y"
    enable_trigger_sounds="y"
    escape_deletes_input="y"
+   flash_taskbar_icon="y"
    history_lines="1000"
    hyperlink_adds_to_command_history="y"
    hyperlink_colour="#0080FF"
@@ -79,6 +80,7 @@
    note_text_colour="black"
    output_font_height="12"
    output_font_weight="400"
+   output_font_charset="134"
    paste_delay_per_lines="1"
    pixel_offset="3"
    port="8080"
@@ -121,7 +123,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
   >
   <trigger
    enabled="y"
@@ -208,7 +210,6 @@
   <send>s;s;zhao</send>
   </trigger>
   <trigger
-   enabled="y"
    group="dazuo"
    match="^Äã±ØÐëÏÈÓÃ enable Ñ¡ÔñÄãÒªÓÃµÄÄÚ¹¦ÐÄ·¨¡£$"
    regexp="y"
@@ -234,6 +235,17 @@
   <send>resetZhenwei()</send>
   </trigger>
   <trigger
+   custom_colour="3"
+   group="tuna"
+   make_underline="y"
+   match="^ÄãµÄÄÚÁ¦²»¹»"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>tn.sleep(1)</send>
+  </trigger>
+  <trigger
    group="ludu"
    match="^ÄãµÄÄÚÁ¦²»¹»"
    regexp="y"
@@ -243,14 +255,26 @@
   <send>n;n;n;e;sleep</send>
   </trigger>
   <trigger
-   enabled="y"
+   custom_colour="3"
    group="dazuo"
+   make_underline="y"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
    regexp="y"
    send_to="12"
    sequence="100"
   >
   <send>dz.sleepDelay()</send>
+  </trigger>
+  <trigger
+   custom_colour="7"
+   group="tuna"
+   make_underline="y"
+   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>tn.sleepDelay()</send>
   </trigger>
   <trigger
    group="ludu"
@@ -279,6 +303,24 @@
    sequence="100"
   >
   <send>drop @bkName;zhao</send>
+  </trigger>
+  <trigger
+   group="tuna"
+   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(.5, 'tuna 10');</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="dushu"
+   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>du shu for 1</send>
   </trigger>
   <trigger
    group="ludu"
@@ -326,8 +368,18 @@
   <send>lujob</send>
   </trigger>
   <trigger
-   enabled="y"
+   group="tuna"
+   match="^ÄãÍÂÄÉÍê±Ï£¬Õö¿ªË«ÑÛ£¬Õ¾ÁËÆðÀ´¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(.5, 'tuna 10');</send>
+  </trigger>
+  <trigger
+   custom_colour="7"
    group="dazuo"
+   make_underline="y"
    match="^ÄãÏÖÔÚµÄÆøÌ«ÉÙÁË£¬ÎÞ·¨²úÉúÄÚÏ¢ÔËÐÐÈ«Éí¾­Âö"
    regexp="y"
    send_to="12"
@@ -346,12 +398,28 @@
   </trigger>
   <trigger
    enabled="y"
+   group="dushu"
+   match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>yun regenerate</send>
+  </trigger>
+  <trigger
    group="dazuo"
    match="^ÄãÏÖÔÚ¾«²»¹»£¬ÎÞ·¨¿ØÖÆÄÚÏ¢µÄÁ÷¶¯£¡$"
    regexp="y"
    sequence="100"
   >
   <send>sleep</send>
+  </trigger>
+  <trigger
+   group="tuna"
+   match="^ÄãÏÖÔÚ¾«²»×ã£¬ÎÞ·¨ÐÞÐÐ¾«Á¦£¡"
+   regexp="y"
+   sequence="100"
+  >
+  <send>yun regenerate</send>
   </trigger>
   <trigger
    group="xuexi"
@@ -363,6 +431,16 @@
    sequence="100"
   >
   <send>xuexi()</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="dushu"
+   match="^ÄãÑÐ¶ÁÁËÒ»´ÎÓÐ¹Ø¶ÁÊéÐ´×ÖµÄ¼¼ÇÉ£¬ËÆºõÓÐµãÐÄµÃ¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(1, 'du shu for 1');</send>
   </trigger>
   <trigger
    group="ludu"
@@ -383,7 +461,15 @@
   <send>w;s;s;s;s;duBook</send>
   </trigger>
   <trigger
-   enabled="y"
+   group="tuna"
+   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>tn.sleep(0)</send>
+  </trigger>
+  <trigger
    group="dazuo"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
    regexp="y"
@@ -393,7 +479,6 @@
   <send>dz.sleep(0)</send>
   </trigger>
   <trigger
-   enabled="y"
    group="dazuo"
    match="^ÄãÔË¹¦Íê±Ï£¬ÉîÉîÎüÁË¿ÚÆø£¬Õ¾ÁËÆðÀ´¡£$"
    regexp="y"
@@ -403,7 +488,6 @@
   <send>doafter(.5, 'dazuo 10');</send>
   </trigger>
   <trigger
-   enabled="y"
    group="dazuo"
    lines_to_match="2"
    match="^ÄãÔË¹¦Íê±Ï£¬ÉîÉîÎüÁË¿ÚÆø£¬Õ¾ÁËÆðÀ´¡£\nÄãµÄÄÚÁ¦Ôö¼ÓÁË£¡£¡"
@@ -490,7 +574,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
   >
   <alias
    match="duBook"
@@ -522,12 +606,8 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
   >
-  <timer name="sleepT" second="5.00" offset_second="0.00" group="dz" >
-  <send>hpbrief</send>
-
-  </timer>
 </timers>
 
 <!-- macros -->
@@ -535,7 +615,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
   >
 
   <macro name="up" type="send_now" >
@@ -629,7 +709,7 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
   >
   <variable name="bkName">luo shu</variable>
   <variable name="dz">1</variable>
@@ -666,7 +746,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
   >
 
 <ansi>
@@ -723,7 +803,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
   >
 
   <key name="0" >
@@ -837,7 +917,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 15:50:16"
+   date_saved="2017-12-26 18:07:58"
   >
 
 <ansi>
@@ -863,8 +943,9 @@
 
 <!-- plugins -->
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\Pkuxkx_mw_z_order_monitor.xml" plugin="y" />
-<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_chat.xml" plugin="y" />
-<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\¶É·ã×´Ì¬²å¼þ20170529.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_p2palias_v2016.xml" plugin="y" />
+<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\¶É·ã×´Ì¬²å¼þ20170529.xml" plugin="y" />
+<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\GSZ_fullmeBrowser.xml" plugin="y" />
+<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_chat.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\Show_fullme_×Ô¶¯ËõÐ¡hszÍ¼Æ¬_20170921.xml" plugin="y" />
 </muclient>

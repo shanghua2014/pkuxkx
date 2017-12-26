@@ -337,17 +337,17 @@ function OnPluginInstall ()
    check(WindowCreate(win, 0, 0, 1, 1, 0, 0, WINDOW_BACKGROUND_COLOUR))
 
    local fonts = utils.getfontfamilies ()
-   if fonts["ËÎÌå"] then
-      default_font_size = 9
-      default_font_name = "ËÎÌå"
+   if fonts["Î¢ÈíÑÅºÚ"] then
+      default_font_size = 12
+      default_font_name = "Î¢ÈíÑÅºÚ"
    elseif fonts["FixedSys"] then
-      default_font_size = 9
+      default_font_size = 12
       default_font_name = "FixedSys"
    elseif fonts ["Courier New"] then
-      default_font_size = 9
+      default_font_size = 12
       default_font_name = "Courier New" -- the actual font
    else
-      default_font_size = 9
+      default_font_size = 12
       default_font_name = "Lucida Console"
    end -- if
 

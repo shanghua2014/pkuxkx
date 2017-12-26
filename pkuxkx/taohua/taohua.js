@@ -1,16 +1,17 @@
 
 
-/*---------------- [打坐] -----------------*/
-var dz = {
-	sleep : function ( i ) {
+
+/*---------------- [睡觉] -----------------*/
+var base = {
+	sleep:function (i, cmd) {
 		// 醒来
-		if (i == 0) { EnableTimer('sleepT', true); DoAfterSpecial(.5, 'dazuo 10', 10); }
+		if (i == 0) { DoAfterSpecial(.5, cmd, 10); }
 		// 睡觉
-		if (i == 1) { EnableTimer('sleepT', false); send('sleep'); }
+		if (i == 1) { send(cmd); }
 	},
-	sleepDelay : function () {
+	sleepDelay:function (time, cmd) {
 		note('睡多了，等会吧。');
-		DoAfterSpecial(30, 'dazuo 10', 10);
+		DoAfterSpecial(time, cmd, 10);
 	}
 }
 note('====== 所有触发已关闭，请启动相关任务！');

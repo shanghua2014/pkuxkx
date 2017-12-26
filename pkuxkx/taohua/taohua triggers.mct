@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 20ÈÕ ÐÇÆÚÈý, ÉÏÎç 11:10 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 26ÈÕ ÐÇÆÚ¶þ, ÏÂÎç 7:20 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -11,7 +11,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-20 11:10:39"
+   date_saved="2017-12-26 19:20:18"
   >
   <trigger
    enabled="y"
@@ -124,6 +124,17 @@
   <send>resetZhenwei()</send>
   </trigger>
   <trigger
+   custom_colour="3"
+   group="tuna"
+   make_underline="y"
+   match="^ÄãµÄÄÚÁ¦²»¹»"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleep(1, 'sleep')</send>
+  </trigger>
+  <trigger
    group="ludu"
    match="^ÄãµÄÄÚÁ¦²»¹»"
    regexp="y"
@@ -133,14 +144,36 @@
   <send>n;n;n;e;sleep</send>
   </trigger>
   <trigger
-   enabled="y"
-   group="dazuo"
+   group="dushu"
+   match="^ÄãµÄÄÚÁ¦²»¹»¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleep(1,'sleep')</send>
+  </trigger>
+  <trigger
+   custom_colour="7"
+   group="tuna"
+   make_underline="y"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>dz.sleepDelay()</send>
+  <send>base.sleepDelay(30, 'sleep')</send>
+  </trigger>
+  <trigger
+   custom_colour="3"
+   enabled="y"
+   group="dazuo"
+   make_underline="y"
+   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleepDelay(30, 'sleep')</send>
   </trigger>
   <trigger
    group="ludu"
@@ -169,6 +202,23 @@
    sequence="100"
   >
   <send>drop @bkName;zhao</send>
+  </trigger>
+  <trigger
+   group="tuna"
+   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(.5, 'tuna 10');</send>
+  </trigger>
+  <trigger
+   group="dushu"
+   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>du shu for 1</send>
   </trigger>
   <trigger
    group="ludu"
@@ -216,14 +266,33 @@
   <send>lujob</send>
   </trigger>
   <trigger
+   group="tuna"
+   match="^ÄãÍÂÄÉÍê±Ï£¬Õö¿ªË«ÑÛ£¬Õ¾ÁËÆðÀ´¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(.5, 'tuna 10');</send>
+  </trigger>
+  <trigger
+   custom_colour="7"
    enabled="y"
    group="dazuo"
+   make_underline="y"
    match="^ÄãÏÖÔÚµÄÆøÌ«ÉÙÁË£¬ÎÞ·¨²úÉúÄÚÏ¢ÔËÐÐÈ«Éí¾­Âö"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>dz.sleep(1)</send>
+  <send>base.sleep(1, 'sleep')</send>
+  </trigger>
+  <trigger
+   group="dushu"
+   match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>yun regenerate</send>
   </trigger>
   <trigger
    group="ludu"
@@ -244,6 +313,14 @@
   <send>sleep</send>
   </trigger>
   <trigger
+   group="tuna"
+   match="^ÄãÏÖÔÚ¾«²»×ã£¬ÎÞ·¨ÐÞÐÐ¾«Á¦£¡"
+   regexp="y"
+   sequence="100"
+  >
+  <send>yun regenerate</send>
+  </trigger>
+  <trigger
    group="xuexi"
    lines_to_match="2"
    match="^ÄãÏòÂ½³Ë·ç´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^Â½³Ë·çËµµÀ£º¡¸×¯×Ó¸½½ü×î½üÀ´Ò»Î»Å®·ÉÔô£¬Äã»¹ÊÇÏÈÈ¥Á·Á·¹¦·ò°É£¬ÒÔÃâÅöµ½±»ÈË³ÜÐ¦£¡¡¹"
@@ -253,6 +330,15 @@
    sequence="100"
   >
   <send>xuexi()</send>
+  </trigger>
+  <trigger
+   group="dushu"
+   match="^ÄãÑÐ¶ÁÁËÒ»´ÎÓÐ¹Ø¶ÁÊéÐ´×ÖµÄ¼¼ÇÉ£¬ËÆºõÓÐµãÐÄµÃ¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(1, 'du shu for 1');</send>
   </trigger>
   <trigger
    group="ludu"
@@ -273,6 +359,15 @@
   <send>w;s;s;s;s;duBook</send>
   </trigger>
   <trigger
+   group="tuna"
+   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleep(0, 'tuna 10')</send>
+  </trigger>
+  <trigger
    enabled="y"
    group="dazuo"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
@@ -280,7 +375,16 @@
    send_to="12"
    sequence="100"
   >
-  <send>dz.sleep(0)</send>
+  <send>base.sleep(0, 'dazuo 10')</send>
+  </trigger>
+  <trigger
+   group="dushu"
+   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleep(0, 'du shu for 1')</send>
   </trigger>
   <trigger
    enabled="y"
