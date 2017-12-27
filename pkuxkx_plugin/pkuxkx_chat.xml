@@ -338,16 +338,16 @@ function OnPluginInstall ()
 
    local fonts = utils.getfontfamilies ()
    if fonts["Î¢ÈíÑÅºÚ"] then
-      default_font_size = 12
+      default_font_size = 10
       default_font_name = "Î¢ÈíÑÅºÚ"
    elseif fonts["FixedSys"] then
-      default_font_size = 12
+      default_font_size = 10
       default_font_name = "FixedSys"
    elseif fonts ["Courier New"] then
-      default_font_size = 12
+      default_font_size = 10
       default_font_name = "Courier New" -- the actual font
    else
-      default_font_size = 12
+      default_font_size = 10
       default_font_name = "Lucida Console"
    end -- if
 

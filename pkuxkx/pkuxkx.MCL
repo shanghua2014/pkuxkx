@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê ËÄÔÂ 13ÈÕ ÐÇÆÚËÄ, ÏÂÎç 7:30 -->
-<!-- MuClient version 4.94 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 27ÈÕ ÐÇÆÚÈý, ÏÂÎç 2:13 -->
+<!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
 <muclient>
 <world
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
    chat_name="Name-not-set"
    command_stack_character=";"
-   id="d5d5b743bbb1d5f4b9f93710"
+   id="7773cf7e3c8576d6a5a2b08c"
    input_font_name="ÐÂËÎÌå"
    mapping_failure="Alas, you cannot go that way."
    name="pkuxkx-newbie"
    new_activity_sound="(No sound)"
-   output_font_name="ÐÂËÎÌå"
+   output_font_name="ËÎÌå"
    script_editor="C:\Program Files\Sublime Text 2.0.2 x64\sublime_text.exe"
    script_editor_argument="%file"
    script_filename="C:\Users\shanghua\Documents\robot\min_win.js"
@@ -72,7 +72,6 @@
    note_text_colour="#040000"
    output_font_height="12"
    output_font_weight="400"
-   output_font_charset="134"
    paste_delay_per_lines="1"
    pixel_offset="3"
    port="8080"
@@ -109,36 +108,36 @@
 <!-- triggers -->
 
 <triggers
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
   >
 </triggers>
 
 <!-- aliases -->
 
 <aliases
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
   >
 </aliases>
 
 <!-- timers -->
 
 <timers
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
   >
 </timers>
 
 <!-- macros -->
 
 <macros
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
   >
 
   <macro name="up" type="send_now" >
@@ -230,18 +229,18 @@
 <!-- variables -->
 
 <variables
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
   >
 </variables>
 
 <!-- colours -->
 
 <colours
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
   >
 
 <ansi>
@@ -296,9 +295,9 @@
 <!-- keypad -->
 
 <keypad
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
   >
 
   <key name="0" >
@@ -410,9 +409,9 @@
 <!-- printing -->
 
 <printing
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-04-13 19:30:16"
+   date_saved="2017-12-27 14:13:28"
   >
 
 <ansi>

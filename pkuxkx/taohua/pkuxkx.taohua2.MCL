@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 26ÈÕ ÐÇÆÚ¶þ, ÏÂÎç 6:15 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 27ÈÕ ÐÇÆÚÈý, ÉÏÎç 1:00 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -104,6 +104,7 @@
    timestamp_output_back_colour="black"
    tool_tip_visible_time="5000"
    tool_tip_start_time="400"
+   treeview_triggers="y"
    treeview_aliases="y"
    treeview_timers="y"
    underline_hyperlinks="y"
@@ -123,7 +124,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
   >
   <trigger
    enabled="y"
@@ -244,7 +245,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>tn.sleep(1)</send>
+  <send>base.sleep(1, 'sleep')</send>
   </trigger>
   <trigger
    group="ludu"
@@ -256,6 +257,15 @@
   <send>n;n;n;e;sleep</send>
   </trigger>
   <trigger
+   group="dushu"
+   match="^ÄãµÄÄÚÁ¦²»¹»¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleep(1,'sleep')</send>
+  </trigger>
+  <trigger
    custom_colour="7"
    group="tuna"
    make_underline="y"
@@ -264,16 +274,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>tn.sleepDelay()</send>
-  </trigger>
-  <trigger
-   group="ludu"
-   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
-   regexp="y"
-   send_to="12"
-   sequence="100"
-  >
-  <send>du_sleep('sleep')</send>
+  <send>base.sleepDelay(30, 'sleep')</send>
   </trigger>
   <trigger
    custom_colour="3"
@@ -285,7 +286,16 @@
    send_to="12"
    sequence="100"
   >
-  <send>dz.sleepDelay()</send>
+  <send>base.sleepDelay(30, 'sleep')</send>
+  </trigger>
+  <trigger
+   group="ludu"
+   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>du_sleep('sleep')</send>
   </trigger>
   <trigger
    group="guozhen"
@@ -314,6 +324,14 @@
    sequence="100"
   >
   <send>doafter(.5, 'tuna 10');</send>
+  </trigger>
+  <trigger
+   group="dushu"
+   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>du shu for 1</send>
   </trigger>
   <trigger
    group="ludu"
@@ -379,7 +397,15 @@
    send_to="12"
    sequence="100"
   >
-  <send>dz.sleep(1)</send>
+  <send>base.sleep(1, 'sleep')</send>
+  </trigger>
+  <trigger
+   group="dushu"
+   match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>yun regenerate</send>
   </trigger>
   <trigger
    group="ludu"
@@ -419,6 +445,15 @@
   <send>xuexi()</send>
   </trigger>
   <trigger
+   group="dushu"
+   match="^ÄãÑÐ¶ÁÁËÒ»´ÎÓÐ¹Ø¶ÁÊéÐ´×ÖµÄ¼¼ÇÉ£¬ËÆºõÓÐµãÐÄµÃ¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(1, 'du shu for 1');</send>
+  </trigger>
+  <trigger
    group="ludu"
    match="^ÄãÑÐ¶ÁÁËÒ»´ÎÓÐ¹ØÆæÃÅ°ËØÔµÄ¼¼ÇÉ£¬ËÆºõÓÐµãÐÄµÃ¡£"
    regexp="y"
@@ -443,7 +478,7 @@
    send_to="12"
    sequence="100"
   >
-  <send>tn.sleep(0)</send>
+  <send>base.sleep(0, 'tuna 10')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -453,7 +488,16 @@
    send_to="12"
    sequence="100"
   >
-  <send>dz.sleep(0)</send>
+  <send>base.sleep(0, 'dazuo 10')</send>
+  </trigger>
+  <trigger
+   group="dushu"
+   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleep(0, 'du shu for 1')</send>
   </trigger>
   <trigger
    enabled="y"
@@ -553,7 +597,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
   >
   <alias
    match="duBook"
@@ -585,7 +629,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
   >
 </timers>
 
@@ -594,7 +638,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
   >
 
   <macro name="up" type="send_now" >
@@ -688,7 +732,7 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
   >
   <variable name="bkName">luo shu</variable>
   <variable name="dz">1</variable>
@@ -725,7 +769,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
   >
 
 <ansi>
@@ -782,7 +826,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
   >
 
   <key name="0" >
@@ -896,7 +940,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:15:25"
+   date_saved="2017-12-27 01:00:48"
   >
 
 <ansi>
