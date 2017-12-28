@@ -78,7 +78,7 @@ print("ÈËÎï×´Ì¬²å¼þÒÑ×°ÔØ£¬ÃüÁî£ºhps [on][off][skillon][skilloff][refresh]")
 
 -- ¹«ÓÃ
 local FONT_NAME = "f1"
-local FONT_SIZE = "9"
+local FONT_SIZE = "10"
 
 local show_skill_win=false
 
@@ -983,7 +983,8 @@ function skill_draw_win()
 	WindowResize (skill_win, skill_win_width, skill_win_height, 0x000010)
 	WindowCircleOp (skill_win, miniwin.circle_round_rectangle, 0, 2, skill_win_width - 2, skill_win_height, 0xc0c0c0, 0, 1,0, 0, 9, 9)
 	
-	local left = 20
+	local left = 35
+	local left2 = 20
 	local top = 10
 	local title_length = 88
 	local grid_off = title_length + 40
@@ -1002,7 +1003,7 @@ function skill_draw_win()
 	for i = 1,#skilltypetemp do	
 		local skilltype = skilltypetemp[i]
 		WindowText (skill_win, FONT_NAME, "£­£­£­£­£­£­£­£­"..skilltype.name.."£­£­£­£­£­£­£­£­£­",
-					left, top, 0, 0,
+					left2, top, 0, 0,
 					ColourNameToRGB ("gray"), false)
 		top = top + 15
 		for j = 1,#skilltype.list do
@@ -1160,7 +1161,7 @@ function hp_status(n,l,w)
 		WindowCreate (hp_win, 0, 0, hp_win_width, hp_win_height, miniwin.pos_bottom_left, 0, 0x000010)
 		movewindow.save_state(hp_win)
 		movewindow.add_drag_handler (hp_win, 0, 0, hp_win_width, 30)
-		WindowFont (hp_win, FONT_NAME, "Î¢ÈíÑÅºÚ", FONT_SIZE)
+		WindowFont (hp_win, FONT_NAME, "ÎÄÈªæäÎ¢Ã×ºÚ", FONT_SIZE)
 		hp_draw_win()
 		show_skill_win=true
 	end
@@ -1204,13 +1205,13 @@ function OnPluginInstall ()
 	local skill_win_info = movewindow.install (skill_win, miniwin.pos_top_left, miniwin.create_absolute_location, true)
 	WindowCreate(skill_win, skill_win_info.window_left, skill_win_info.window_top, hp_win_width, hp_win_height, skill_win_info.window_mode, skill_win_info.window_flags, 0x000010)
 	movewindow.add_drag_handler (skill_win, 0, 0, skill_win_width, 30)
-	WindowFont (skill_win, FONT_NAME, "Î¢ÈíÑÅºÚ", FONT_SIZE)
+	WindowFont (skill_win, FONT_NAME, "ÎÄÈªæäÎ¢Ã×ºÚ", FONT_SIZE)
 	
 	WindowCreate (hp_win, 0, 0, hp_win_width, hp_win_height, miniwin.pos_bottom_left, 0, 0x000010)
 	local hp_win_info = movewindow.install (hp_win, miniwin.pos_bottom_left, miniwin.create_absolute_location, true)
 	WindowCreate(hp_win, hp_win_info.window_left, hp_win_info.window_top, hp_win_width, hp_win_height, hp_win_info.window_mode, hp_win_info.window_flags, 0x000010)
 	movewindow.add_drag_handler (hp_win, 0, 0, hp_win_width, 30)
-	WindowFont (hp_win, FONT_NAME, "Î¢ÈíÑÅºÚ", FONT_SIZE)
+	WindowFont (hp_win, FONT_NAME, "ÎÄÈªæäÎ¢Ã×ºÚ", FONT_SIZE)
 end
 
 function OnPluginClose ()

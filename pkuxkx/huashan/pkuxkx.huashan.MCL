@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 26ÈÕ ÐÇÆÚ¶þ, ÏÂÎç 6:06 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 4:55 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -122,7 +122,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
   >
   <trigger
    enabled="y"
@@ -342,14 +342,6 @@
   <send>DoAfterSpecial(20, 'n_job', 10);</send>
   </trigger>
   <trigger
-   group="xs"
-   match="^ÆÃÆ¤Ò»°ÑÀ¹×¡Äã£ºÒªÏò´Ó´Ë¹ý£¬ÁôÏÂÂòÂ·²Æ£¡ÆÃÆ¤Ò»°ÑÀ­×¡ÁËÄã¡£"
-   send_to="12"
-   sequence="100"
-  >
-  <send>xs.busy()</send>
-  </trigger>
-  <trigger
    group="xs_job"
    match="^ÆÃÆ¤Ò»°ÑÀ¹×¡Äã£ºÒªÏò´Ó´Ë¹ý£¬ÁôÏÂÂòÂ·²Æ£¡ÆÃÆ¤Ò»°ÑÀ­×¡ÁËÄã¡£"
    regexp="y"
@@ -357,6 +349,14 @@
    sequence="100"
   >
   <send>DoAfterSpecial(10, '(sd)(eu)(wd)(su)(east)(sd)(sd)(sd)(nu)(nu)(nu)(west)(south)(south)', 11);</send>
+  </trigger>
+  <trigger
+   group="xs"
+   match="^ÆÃÆ¤Ò»°ÑÀ¹×¡Äã£ºÒªÏò´Ó´Ë¹ý£¬ÁôÏÂÂòÂ·²Æ£¡ÆÃÆ¤Ò»°ÑÀ­×¡ÁËÄã¡£"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xs.busy()</send>
   </trigger>
   <trigger
    enabled="y"
@@ -382,7 +382,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
   >
   <alias
    match="job"
@@ -427,7 +427,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
   >
 </timers>
 
@@ -436,7 +436,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
   >
 
   <macro name="up" type="send_now" >
@@ -530,7 +530,7 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
   >
   <variable name="is_find">0</variable>
   <variable name="npcName">ÃÏÎÞÒÇ</variable>
@@ -544,7 +544,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
   >
 
 <ansi>
@@ -601,7 +601,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
   >
 
   <key name="0" >
@@ -715,7 +715,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-26 18:06:48"
+   date_saved="2017-12-28 16:55:39"
   >
 
 <ansi>

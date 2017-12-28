@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 27ÈÕ ÐÇÆÚÈý, ÉÏÎç 1:00 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 5:07 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -77,7 +77,7 @@
    max_output_lines="5000"
    mud_can_change_link_colour="y"
    mud_can_change_options="y"
-   note_text_colour="black"
+   note_text_colour="#040000"
    output_font_height="12"
    output_font_weight="400"
    output_font_charset="134"
@@ -124,7 +124,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
   >
   <trigger
    enabled="y"
@@ -155,15 +155,6 @@
    sequence="100"
   >
   <send>login()</send>
-  </trigger>
-  <trigger
-   group="pingjob"
-   match="^³µ·ò¸æËßÄã£º¡°µ½À²£¬ÕâÀï¾ÍÊÇ¹éÔÆ×¯¡£¡±"
-   regexp="y"
-   send_to="10"
-   sequence="100"
-  >
-  <send>enter;nu;nu;e;e;lujob</send>
   </trigger>
   <trigger
    group="lujob"
@@ -211,7 +202,6 @@
   <send>s;s;zhao</send>
   </trigger>
   <trigger
-   enabled="y"
    group="dazuo"
    match="^Äã±ØÐëÏÈÓÃ enable Ñ¡ÔñÄãÒªÓÃµÄÄÚ¹¦ÐÄ·¨¡£$"
    regexp="y"
@@ -238,6 +228,7 @@
   </trigger>
   <trigger
    custom_colour="3"
+   enabled="y"
    group="tuna"
    make_underline="y"
    match="^ÄãµÄÄÚÁ¦²»¹»"
@@ -266,19 +257,16 @@
   <send>base.sleep(1,'sleep')</send>
   </trigger>
   <trigger
-   custom_colour="7"
-   group="tuna"
-   make_underline="y"
+   group="ludu"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>base.sleepDelay(30, 'sleep')</send>
+  <send>du_sleep('sleep')</send>
   </trigger>
   <trigger
    custom_colour="3"
-   enabled="y"
    group="dazuo"
    make_underline="y"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
@@ -289,13 +277,16 @@
   <send>base.sleepDelay(30, 'sleep')</send>
   </trigger>
   <trigger
-   group="ludu"
+   custom_colour="7"
+   enabled="y"
+   group="tuna"
+   make_underline="y"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>du_sleep('sleep')</send>
+  <send>base.sleepDelay(30, 'sleep')</send>
   </trigger>
   <trigger
    group="guozhen"
@@ -317,6 +308,15 @@
   <send>drop @bkName;zhao</send>
   </trigger>
   <trigger
+   group="dushu"
+   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>du shu for 1</send>
+  </trigger>
+  <trigger
+   enabled="y"
    group="tuna"
    match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
    regexp="y"
@@ -324,14 +324,6 @@
    sequence="100"
   >
   <send>doafter(.5, 'tuna 10');</send>
-  </trigger>
-  <trigger
-   group="dushu"
-   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
-   regexp="y"
-   sequence="100"
-  >
-  <send>du shu for 1</send>
   </trigger>
   <trigger
    group="ludu"
@@ -379,6 +371,7 @@
   <send>lujob</send>
   </trigger>
   <trigger
+   enabled="y"
    group="tuna"
    match="^ÄãÍÂÄÉÍê±Ï£¬Õö¿ªË«ÑÛ£¬Õ¾ÁËÆðÀ´¡£"
    regexp="y"
@@ -389,7 +382,6 @@
   </trigger>
   <trigger
    custom_colour="7"
-   enabled="y"
    group="dazuo"
    make_underline="y"
    match="^ÄãÏÖÔÚµÄÆøÌ«ÉÙÁË£¬ÎÞ·¨²úÉúÄÚÏ¢ÔËÐÐÈ«Éí¾­Âö"
@@ -398,14 +390,6 @@
    sequence="100"
   >
   <send>base.sleep(1, 'sleep')</send>
-  </trigger>
-  <trigger
-   group="dushu"
-   match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
-   regexp="y"
-   sequence="100"
-  >
-  <send>yun regenerate</send>
   </trigger>
   <trigger
    group="ludu"
@@ -417,7 +401,14 @@
   <send>DoAfter(.5, 'yun regenerate')</send>
   </trigger>
   <trigger
-   enabled="y"
+   group="dushu"
+   match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>yun regenerate</send>
+  </trigger>
+  <trigger
    group="dazuo"
    match="^ÄãÏÖÔÚ¾«²»¹»£¬ÎÞ·¨¿ØÖÆÄÚÏ¢µÄÁ÷¶¯£¡$"
    regexp="y"
@@ -426,6 +417,7 @@
   <send>sleep</send>
   </trigger>
   <trigger
+   enabled="y"
    group="tuna"
    match="^ÄãÏÖÔÚ¾«²»×ã£¬ÎÞ·¨ÐÞÐÐ¾«Á¦£¡"
    regexp="y"
@@ -472,6 +464,7 @@
   <send>w;s;s;s;s;duBook</send>
   </trigger>
   <trigger
+   enabled="y"
    group="tuna"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
    regexp="y"
@@ -481,7 +474,6 @@
   <send>base.sleep(0, 'tuna 10')</send>
   </trigger>
   <trigger
-   enabled="y"
    group="dazuo"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
    regexp="y"
@@ -500,7 +492,6 @@
   <send>base.sleep(0, 'du shu for 1')</send>
   </trigger>
   <trigger
-   enabled="y"
    group="dazuo"
    match="^ÄãÔË¹¦Íê±Ï£¬ÉîÉîÎüÁË¿ÚÆø£¬Õ¾ÁËÆðÀ´¡£$"
    regexp="y"
@@ -510,7 +501,6 @@
   <send>doafter(.5, 'dazuo 10');</send>
   </trigger>
   <trigger
-   enabled="y"
    group="dazuo"
    lines_to_match="2"
    match="^ÄãÔË¹¦Íê±Ï£¬ÉîÉîÎüÁË¿ÚÆø£¬Õ¾ÁËÆðÀ´¡£\nÄãµÄÄÚÁ¦Ôö¼ÓÁË£¡£¡"
@@ -539,42 +529,6 @@
   <send>du_get_book("%1")</send>
   </trigger>
   <trigger
-   group="pingjob"
-   match="^ÄãÖ±ÆðÑü£¬ÉîÉîµØÎüÁËÒ»¿ÚÆø¡£"
-   regexp="y"
-   send_to="10"
-   sequence="100"
-  >
-  <send>s;give ping yao</send>
-  </trigger>
-  <trigger
-   group="pingjob"
-   match="^Æ½Ò»Ö¸ËµµÀ£º¡¸ÎÒÃÇÏÖÔÚÕýºÃÈ±ÉÙÒ»ÖÖÒ©£¬ÕâÊÇÒ©·½£¬ÄãÈ¥Åä°É¡¹"
-   regexp="y"
-   send_to="10"
-   sequence="100"
-  >
-  <send>n;hp;peiyao</send>
-  </trigger>
-  <trigger
-   group="pingjob"
-   match="^Æ½Ò»Ö¸ËµµÀ£º¡¸ÔÚÎÒÕâÀïÅäÒ©Ì«ÂñÃ»ÄúÀ­£¬Äú»¹ÊÇÈ¥¸Éµã±ðµÄ°É¡£¡¹"
-   regexp="y"
-   send_to="10"
-   sequence="100"
-  >
-  <send>s;travel gy</send>
-  </trigger>
-  <trigger
-   group="pingjob"
-   match="^Æ½Ò»Ö¸Ð¦ºÇºÇ½Ó¹ýÄãÅäºÃµÄÒ©£¬Ëµ£ºÐ»Ð»ÕâÎ»Ð¡¹ÃÄï"
-   regexp="y"
-   send_to="10"
-   sequence="100"
-  >
-  <send>pingjob</send>
-  </trigger>
-  <trigger
    group="guozhen"
    match="^ÌìÉ«´ó±ä£¬Â½³Ë·ç¸øÄãËãµÄØÔÒ²²»ÄÇÃ´×¼ÁË¡£"
    regexp="y"
@@ -597,7 +551,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
   >
   <alias
    match="duBook"
@@ -629,7 +583,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
   >
 </timers>
 
@@ -638,7 +592,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
   >
 
   <macro name="up" type="send_now" >
@@ -732,7 +686,7 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
   >
   <variable name="bkName">luo shu</variable>
   <variable name="dz">1</variable>
@@ -769,7 +723,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
   >
 
 <ansi>
@@ -826,7 +780,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
   >
 
   <key name="0" >
@@ -940,7 +894,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 01:00:48"
+   date_saved="2017-12-28 17:07:38"
   >
 
 <ansi>

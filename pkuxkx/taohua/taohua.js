@@ -1,13 +1,24 @@
+/**
+ * 开始任务之前，要在先学1级literate，位置：扬州-书店-老夫子
+ */
 
 
-
-/*---------------- [新手任务] -----------------*/
+/*---------------- [新手任务：奇门盾甲] -----------------*/
+var qm = {
+	find:function (book_en) {
+		SetVariable('book_en', book_en);
+		DoAfterSpecial(1, 'duBook', 10);
+	}
+}
+/*---------------- [新手任务：桃花阵] -----------------*/
 var job = {
 	guawei : '',
 	position:[],
 	i:0,
 	lookTu: function ( guawei ) {
 		this.guawei = guawei;
+		SetVariable('guawei', guawei);
+		EnableTriggerGroup('jianding', 0);
 		EnableTriggerGroup('guozhen', 1);
 		DoAfterSpecial(1, 'look tu', 10);
 	},
@@ -19,8 +30,13 @@ var job = {
 			this.position.push(reversePathCN(p3));
 			this.position.push(reversePathCN(p4));
 			SetVariable('position', this.position);
-			SetStatus('位置：' + p1 + '------' + p2 + '------' + p3 + '------' + p4 + ':::' + this.position);
 			DoAfterSpecial(1, '4e', 11);
+			hps({
+				n: '桃花阵',
+				l: guawei,
+				m: p1 + '---' + p2 + '---' + p3 + '---' + p4,
+				m2: this.position
+			});
 		}
 	},
 	zouwei : function ( reset ) {
@@ -30,22 +46,23 @@ var job = {
 		}
 		if (this.i > 3) this.i = 0;
 		this.position = GetVariable('position').split(',');
-		note('走了一步：'+this.position[this.i]);
 		DoAfterSpecial(2, this.position[this.i], 10);
 		this.i++;
 	},
 	busy : function () {
+		note('bus处理...')
 		this.position = GetVariable('position').split(',');
-		if (this.i != 0) --this.i;
+		if (this.i != 0) {this.i = parseInt(this.i)-1;}
 		DoAfterSpecial(2, this.position[this.i], 10);
 		this.i++;
 	},
 	back : function () {
+		EnableTriggerGroup('guozhen', 0);
 		note('到点出阵了！');
 		send('leave');
 		send('jiali 0');
-		DoAfterSpecial(1, '3w', 11);
-		DoAfterSpecial(3, '(ask lu about job)', 11);
+		hps_del();
+		DoAfterSpecial(3, '3w(ask lu about job)', 11);
 	},
 	kill : function ( npc ) {
 		if (npc) {
@@ -54,14 +71,81 @@ var job = {
 			SetVariable('zhen_npc_ch', npc);
 		} else {
 			var npc = GetVariable('zhen_npc_en');
-			note(npc);
-			DoAfterSpecial(2, "(kill "+npc+')', 11);
+			DoAfterSpecial(.5, "(kill "+npc+')', 11);
 		}
+	}
+}
+/*---------------- [新手任务：鉴定古玩] -----------------*/
+var jianding = {
+	jianding:function (object) {
+		var name = '';
+		switch (object) {
+			case '字画':
+				name='zihua'
+				break;
+			case '古玩':
+				name='guwan'
+				break;
+		}
+		DoAfterSpecial(1, 'jianding '+name, 10);
+	},
+	guwan: function (guwan ) {
+		SetVariable('guwan', guwan);
+		DoAfterSpecial(3, 'i', 10);
+		hps({
+			s: '鉴定完成',
+			l: guwan
+		});
+	},
+	over : function (f_name, l_name) {
+		f_name = f_name.toLowerCase();
+		var guwan = GetVariable('guwan');
+		hps({
+			l: guwan,
+			n: '鉴定古玩',
+			s: '鉴定完成',
+			m2: f_name+l_name
+		});
+		if (l_name) {
+			DoAfterSpecial(1, '2n2w(give '+f_name + l_name +' to lu)', 11);
+		} else {
+			DoAfterSpecial(1, '2n2w(give '+f_name +' to lu)', 11);
+		}
+	}
+}
+
+/*---------------- [任务切换] -----------------*/
+var change = {
+	// 检定任务
+	job_jianding : function () {
+		hps({
+			n: '鉴定古玩',
+			s: '鉴定中...'
+		});
+		EnableTriggerGroup('jianding', 1);
+		EnableTriggerGroup('guozhen', 0);
+		DoAfterSpecial(1, '2s(na)', 11);
+	},
+	// 打坐任务
+	job_dz : function () {
+		DoAfterSpecial(1, 'ne(dazuo 10)', 11);
+		SetVariable('job_dz', 1);
+		EnableTriggerGroup('qimen', 0);
+		EnableTriggerGroup('dazuo', 1);
 	}
 }
 
 /*---------------- [睡觉] -----------------*/
 var base = {
+	hpbrief:function(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12){
+		var job_dz = GetVariable('job_dz');
+		if (job_dz==1 && p3 >= 300) {
+			EnableTriggerGroup('dazuo', 0);
+			EnableTriggerGroup('qimen', 1);
+			EnableTriggerGroup('guozhen', 1);
+			DoAfterSpecial(1, 'ws(lujob)', 10);
+		}
+	},
 	sleep:function (i, cmd) {
 		// 醒来
 		if (i == 0) { DoAfterSpecial(.5, cmd, 10); }
@@ -78,16 +162,25 @@ EnableTriggerGroup('dazuo', 0)
 EnableTriggerGroup('tuna', 0)
 EnableTriggerGroup('dushu', 0)
 EnableTriggerGroup('lian', 0)
-EnableTriggerGroup('guozhen', 0)
-EnableTriggerGroup('ludu', 0)
-EnableTriggerGroup('snow', 0)
-EnableTriggerGroup('xuexi', 0)
 
 
 //--------------------------------------------
 //| 公共方法
 //--------------------------------------------
-
+function hps (object) {
+	SetVariable('Q_name', object.n);
+	SetVariable('Q_location', object.l);
+	SetVariable('Q_status', object.s);
+	SetVariable('Q_misc', object.m);
+	SetVariable('Q_misc2', object.m2);
+}
+function hps_del() {
+	DeleteVariable('Q_name');
+	DeleteVariable('Q_location');
+	DeleteVariable('Q_status');
+	DeleteVariable('Q_misc');
+	DeleteVariable('Q_misc2');
+}
 /**
  * 
  * @param {object} t 添加定时器

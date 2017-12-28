@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on ÐÇÆÚÈý, Ê®¶þÔÂ 06, 2017, 4:36 ÏÂÎç -->
-<!-- MuClient version 4.94 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 5:22 -->
+<!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
 <muclient>
 <world
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
    chat_name="Name-not-set"
    command_stack_character=";"
-   id="d5d5b743bbb1d5f4b9f93710"
+   id="98b373793933427b6505a804"
    input_font_name="ËÎÌå"
    mapping_failure="Alas, you cannot go that way."
    name="pkuxkx-newbie"
    new_activity_sound="(No sound)"
-   output_font_name="ºÚÌå"
+   output_font_name="ËÎÌå"
    script_editor="C:\Program Files\Sublime Text 2.0.2 x64\sublime_text.exe"
    script_editor_argument="%file"
-   script_filename="Z:\Users\shanghua\MUSHclient\pkuxkx\newbie.js"
+   script_filename="Z:\Users\shanghua\MUSHclient\pkuxkx\newbie\newbie.js"
    script_language="JScript"
    site="mud.pkuxkx.net"
    spam_message="look"
@@ -62,6 +62,7 @@
    input_background_colour="white"
    input_font_height="10"
    input_font_weight="700"
+   input_font_charset="134"
    input_text_colour="black"
    keypad_enable="y"
    line_information="y"
@@ -107,9 +108,9 @@
 <!-- triggers -->
 
 <triggers
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
   >
   <trigger
    enabled="y"
@@ -400,15 +401,6 @@
   <send>doafter(5, 'sleep')</send>
   </trigger>
   <trigger
-   group="xx"
-   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ! "
-   regexp="y"
-   send_to="12"
-   sequence="100"
-  >
-  <send>xuexi4()</send>
-  </trigger>
-  <trigger
    group="lian"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ! "
    regexp="y"
@@ -416,6 +408,15 @@
    sequence="100"
   >
   <send>doAfterSpecial(10, 's(lian sword 1)', 11);</send>
+  </trigger>
+  <trigger
+   group="xx"
+   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ! "
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>xuexi4()</send>
   </trigger>
   <trigger
    enabled="y"
@@ -533,14 +534,13 @@ doafter(1, 'l hulu');
 doafter(1.5, 'fill hulu');</send>
   </trigger>
   <trigger
-   enabled="y"
-   group="job"
+   group="laohu"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å¡£"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>sleepBack1()</send>
+  <send>shalaohu2()</send>
   </trigger>
   <trigger
    group="lian"
@@ -552,6 +552,16 @@ doafter(1.5, 'fill hulu');</send>
   <send>doAfterSpecial(1, '(lian sword 1)', 11);</send>
   </trigger>
   <trigger
+   enabled="y"
+   group="job"
+   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>sleepBack1()</send>
+  </trigger>
+  <trigger
    group="xx"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å¡£"
    regexp="y"
@@ -559,15 +569,6 @@ doafter(1.5, 'fill hulu');</send>
    sequence="100"
   >
   <send>xuexi4()</send>
-  </trigger>
-  <trigger
-   group="laohu"
-   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å¡£"
-   regexp="y"
-   send_to="12"
-   sequence="100"
-  >
-  <send>shalaohu2()</send>
   </trigger>
   <trigger
    enabled="y"
@@ -829,27 +830,27 @@ doafter(2.5, 'ask you about ´³µ´½­ºþ');</send>
 <!-- aliases -->
 
 <aliases
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
   >
 </aliases>
 
 <!-- timers -->
 
 <timers
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
   >
 </timers>
 
 <!-- macros -->
 
 <macros
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
   >
 
   <macro name="up" type="send_now" >
@@ -941,20 +942,20 @@ doafter(2.5, 'ask you about ´³µ´½­ºþ');</send>
 <!-- variables -->
 
 <variables
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
   >
   <variable name="i">8</variable>
-  <variable name="sex">1</variable>
+  <variable name="sex">0</variable>
 </variables>
 
 <!-- colours -->
 
 <colours
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
   >
 
 <ansi>
@@ -967,7 +968,7 @@ doafter(2.5, 'ask you about ´³µ´½­ºþ');</send>
    <colour seq="5" rgb="navy" />
    <colour seq="6" rgb="purple" />
    <colour seq="7" rgb="teal" />
-   <colour seq="8" rgb="silver" />
+   <colour seq="8" rgb="green" />
 
  </normal>
 
@@ -1009,9 +1010,9 @@ doafter(2.5, 'ask you about ´³µ´½­ºþ');</send>
 <!-- keypad -->
 
 <keypad
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
   >
 
   <key name="0" >
@@ -1123,9 +1124,9 @@ doafter(2.5, 'ask you about ´³µ´½­ºþ');</send>
 <!-- printing -->
 
 <printing
-   muclient_version="4.94"
+   muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-06 16:36:12"
+   date_saved="2017-12-28 17:22:37"
   >
 
 <ansi>

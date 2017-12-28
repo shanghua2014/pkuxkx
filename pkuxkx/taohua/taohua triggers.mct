@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 27ÈÕ ÐÇÆÚÈý, ÏÂÎç 9:18 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 8:48 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -11,7 +11,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-27 21:18:01"
+   date_saved="2017-12-28 20:48:35"
   >
   <trigger
    enabled="y"
@@ -22,10 +22,9 @@
    send_to="12"
    sequence="100"
   >
-  <send>hpbrief(%1,%2,%3,%4,%5,%6,%7,%8,%9,%&lt;10&gt;,%&lt;11&gt;,%&lt;12&gt;)</send>
+  <send>base.hpbrief(%1,%2,%3,%4,%5,%6,%7,%8,%9,%&lt;10&gt;,%&lt;11&gt;,%&lt;12&gt;)</send>
   </trigger>
   <trigger
-   enabled="y"
    expand_variables="y"
    group="guozhen"
    lines_to_match="9"
@@ -37,7 +36,16 @@
   <send>job.zhenCN("%1","%2","%3","%4","%5")</send>
   </trigger>
   <trigger
-   enabled="y"
+   expand_variables="y"
+   group="jianding"
+   match="^.*@guwan\((\w+)(\s(\w+))?\)"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>jianding.over("%1","%2")</send>
+  </trigger>
+  <trigger
    group="guozhen"
    match="^\(\sÄãÒÑ¾­ÏÝÈë°ë»èÃÔ×´Ì¬£¬ËæÊ±¶¼¿ÉÄÜË¤µ¹ÔÎÈ¥¡£\s\)"
    regexp="y"
@@ -46,7 +54,6 @@
   <send>leave</send>
   </trigger>
   <trigger
-   enabled="y"
    group="guozhen"
    match="^\s+Å®·ÉÔô\s\S+\(\w+\s(\w+)\)\s"
    regexp="y"
@@ -56,25 +63,26 @@
   <send>SetVariable('zhen_npc_en', "%1");</send>
   </trigger>
   <trigger
+   enabled="y"
    group="snow"
    match="^»·¹ËËÄÖÜ£¬µ½´¦¶¼ÊÇ°×°¨°¨µÄ»ýÑ©¡£"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>doafter(2, 'l snow');</send>
+  <send>doafter(3, 'l snow');</send>
   </trigger>
   <trigger
+   enabled="y"
    group="snow"
    match="^½à°×µÄÑ©µØÉÏÁãÐÇµÄÉ¢Âä×Å¼¸¶ä½ÅÓ¡¡£"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>doafter(2, 'l snow')</send>
+  <send>doafter(3, 'l snow')</send>
   </trigger>
   <trigger
-   enabled="y"
    group="guozhen"
    match="^¿´ÆðÀ´(.*)ÏëÉ±ËÀÄã£¡"
    regexp="y"
@@ -82,6 +90,16 @@
    sequence="100"
   >
   <send>job.kill("%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="lujob"
+   match="^Â½³Ë·çµÀ£º¡°Ê¦¸¸Ï²°®¹ÅÍæ×Ö»­£¬ÎÒËÑ¼¯Ò»Ð©¹ÅÍæ×Ö»­ÔÚÊé·¿£¬¾Í¸éÔÚÊé¼ÜÉÏ£¬µ«ºÜ¶àÕæÎ±ÄÑ±æ£¬Äã°ïÎÒÈ¥¼ø¶¨\(jianding\)Ò»ÏÂ°É"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>change.job_jianding();</send>
   </trigger>
   <trigger
    custom_colour="2"
@@ -101,14 +119,12 @@
    enabled="y"
    group="lujob"
    match="^Â½³Ë·çËµµÀ£º¡¸ÄãµÄÄÚÁ¦Ì«µÍ£¬¶à³éµãÊ±¼ä´ò×ø°É¡£¡¹"
-   regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>dazuo()</send>
+  <send>change.job_dz();</send>
   </trigger>
   <trigger
-   enabled="y"
    group="guozhen"
    match="^Â½³Ë·çËµµÀ£º¡¸ÎÒ²»ÊÇ¸Õ¸øÄãÕ¼¹ýÒ»ØÔÂð£¿¡¹"
    regexp="y"
@@ -121,13 +137,22 @@
    enabled="y"
    group="lujob"
    match="^Â½³Ë·çËµµÀ£º¡¸ÎÒÅÉÎäÑ§¶à½¨Á¢ÔÚÆæÃÅ°ËØÔµÄ»ù´¡ÉÏ*"
-   regexp="y"
-   send_to="10"
+   send_to="12"
    sequence="100"
   >
-  <send>s;s;zhao</send>
+  <send>doafter(.5, 's;s;zhao',11);EnableTriggerGroup('qimen', 1);</send>
   </trigger>
   <trigger
+   group="jianding"
+   match="^Â½¹ÚÓ¢½Ó¹ýÄãÊÖÀïµÄ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(2, '2e(ask lu about job)', 11)</send>
+  </trigger>
+  <trigger
+   enabled="y"
    group="snow"
    match="^ÂýÂýµÄ£¬Äã·¢ÏÖ×Ô¼º¿ÉÒÔÕö¿ªÑÛÁË£¬Ö»ÊÇÑÛ¾¦ËÆÓÐÉ°×Ó£¬ÌÛÍ´Á÷Àá¡£"
    regexp="y"
@@ -146,9 +171,7 @@
   </trigger>
   <trigger
    custom_colour="17"
-   enabled="y"
    group="guozhen"
-   make_underline="y"
    match="^Äã³äÂú×ÔÐÅµÄÏòÇ°×ßÈ¥£¬ÌÒ»¨Õó¿´À´Ò²²»ÔÚ»°ÏÂ¡£"
    regexp="y"
    send_to="12"
@@ -158,26 +181,28 @@
   <send>job.zouwei()</send>
   </trigger>
   <trigger
-   enabled="y"
    group="guozhen"
-   match="^ÄãµÄ¡¸\S+¡¹½ø²½ÁË£¡"
-   regexp="y"
-   sequence="100"
-  >
-  <send>sk</send>
-  </trigger>
-  <trigger
-   enabled="y"
-   group="guozhen"
-   match="^ÄãµÄ¶¯×÷»¹Ã»ÓÐÍê³É£¬²»ÄÜÒÆ¶¯¡£"
+   match="^ÄãµÄ¶¯×÷»¹Ã»ÓÐÍê³É"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>job.bus()</send>
+  <send>job.busy()</send>
   </trigger>
   <trigger
-   group="ludu"
+   custom_colour="3"
+   group="tuna"
+   make_underline="y"
+   match="^ÄãµÄÄÚÁ¦²»¹»"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleep(1, 'sleep')</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="qimen"
    match="^ÄãµÄÄÚÁ¦²»¹»"
    regexp="y"
    send_to="10"
@@ -186,10 +211,8 @@
   <send>n;n;n;e;sleep</send>
   </trigger>
   <trigger
-   custom_colour="3"
-   group="tuna"
-   make_underline="y"
-   match="^ÄãµÄÄÚÁ¦²»¹»"
+   group="lian"
+   match="^ÄãµÄÄÚÁ¦²»¹»¡£"
    regexp="y"
    send_to="12"
    sequence="100"
@@ -206,13 +229,12 @@
   <send>base.sleep(1,'sleep')</send>
   </trigger>
   <trigger
-   group="lian"
-   match="^ÄãµÄÄÚÁ¦²»¹»¡£"
+   group="dazuo"
+   match="^ÄãµÄÄÚÁ¦ÉÏÏÞÔö¼ÓÁË"
    regexp="y"
-   send_to="12"
    sequence="100"
   >
-  <send>base.sleep(1, 'sleep')</send>
+  <send>hpbrief</send>
   </trigger>
   <trigger
    group="lian"
@@ -223,6 +245,15 @@
   <send>yun recover</send>
   </trigger>
   <trigger
+   group="jianding"
+   match="^Äã·¢ÏÖÊÖÖÐµÄ¾¹ÊÇ(.*)¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>jianding.guwan("%1")</send>
+  </trigger>
+  <trigger
    group="lian"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ"
    regexp="y"
@@ -230,17 +261,6 @@
    sequence="100"
   >
   <send>doafter(30, 'sleep')</send>
-  </trigger>
-  <trigger
-   custom_colour="7"
-   group="tuna"
-   make_underline="y"
-   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
-   regexp="y"
-   send_to="12"
-   sequence="100"
-  >
-  <send>base.sleepDelay(30, 'sleep')</send>
   </trigger>
   <trigger
    custom_colour="3"
@@ -254,16 +274,27 @@
   <send>base.sleepDelay(30, 'sleep')</send>
   </trigger>
   <trigger
-   group="ludu"
+   enabled="y"
+   group="qimen"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>du_sleep('sleep')</send>
+  <send>doafter(30,'sleep',10)</send>
   </trigger>
   <trigger
-   enabled="y"
+   custom_colour="7"
+   group="tuna"
+   make_underline="y"
+   match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleepDelay(30, 'sleep')</send>
+  </trigger>
+  <trigger
    group="guozhen"
    match="^ÄãºúÂÒ×ß×Å£¬Ïñ¸öÃ»Í·²ÔÓ¬Ò»Ñù£¬ÓÐ¸öÉùÒôÀäÐ¦£ºÌÒ»¨ÕóÆñÊÇÀËµÃÐéÃû¡£"
    regexp="y"
@@ -273,17 +304,41 @@
   <send>job.zouwei(0)</send>
   </trigger>
   <trigger
+   enabled="y"
    expand_variables="y"
-   group="ludu"
+   group="qimen"
    match="^Äã»ñµÃÁË*µãÇ±ÄÜ¡£"
    regexp="y"
    send_to="10"
    sequence="100"
   >
-  <send>drop @bkName;zhao</send>
+  <send>drop @book_en;zhao</send>
   </trigger>
   <trigger
-   enabled="y"
+   group="jianding"
+   match="^Äã¼ðÆðÁËÒ»Ì×(\S+)¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>jianding.jianding("%1")</send>
+  </trigger>
+  <trigger
+   group="jianding"
+   match="^Äã¼ðÆðÁËÒ»Ì××Ö»­"
+   regexp="y"
+   sequence="100"
+  >
+  <send>jianding zihua</send>
+  </trigger>
+  <trigger
+   group="guozhen"
+   match="^Äã½¥½¥·¢ÏÖ£¬ÌÒÁÖµÄÂ·¾¶ÄãÀÃÊìÓÚÐÄ£¬¶ÔÄãÒÑ²»ÊÇÌôÕ½¡£"
+   sequence="100"
+  >
+  <send>leave</send>
+  </trigger>
+  <trigger
    group="guozhen"
    match="^ÄãÀ´µ½ÁËÒ»Æ¬ÌÒ»¨ÁÖÀï£¬Á¢¿ÌÃÔÊ§ÁË·½Ïò¡£"
    regexp="y"
@@ -291,14 +346,6 @@
    sequence="100"
   >
   <send>job.zouwei()</send>
-  </trigger>
-  <trigger
-   group="dushu"
-   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
-   regexp="y"
-   sequence="100"
-  >
-  <send>read shediao 1</send>
   </trigger>
   <trigger
    group="tuna"
@@ -310,7 +357,8 @@
   <send>doafter(.5, 'tuna 10');</send>
   </trigger>
   <trigger
-   group="ludu"
+   enabled="y"
+   group="qimen"
    match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
    regexp="y"
    send_to="10"
@@ -319,7 +367,25 @@
   <send>duBook</send>
   </trigger>
   <trigger
-   group="ludu"
+   group="dushu"
+   match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
+   regexp="y"
+   sequence="100"
+  >
+  <send>read shediao 1</send>
+  </trigger>
+  <trigger
+   group="guozhen"
+   match="^ÄãÄªÃûÆäÃîµØ×ß³öÁËÌÒ»¨Õó"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(2.5, '3w(ask lu about job)', 11)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="qimen"
    match="^ÄãÇëÏÈÓÃ enable Ö¸ÁîÑ¡ÔñÄãÒªÊ¹ÓÃµÄÄÚ¹¦"
    regexp="y"
    send_to="10"
@@ -328,7 +394,8 @@
   <send>n;n;n;e;sleep</send>
   </trigger>
   <trigger
-   group="ludu"
+   enabled="y"
+   group="qimen"
    match="^ÄãÉíÉÏÃ»ÓÐ.*ÕâÖÖ¶«Î÷,ÇëÓÃ id Ö¸Áî¿´¿´ÎïÆ· id ¡£"
    regexp="y"
    send_to="10"
@@ -354,9 +421,8 @@
   <send>doafter(1,'lian dodge 1');</send>
   </trigger>
   <trigger
-   enabled="y"
    group="guozhen"
-   match="^ÄãË³ÀûµØ»Øµ½ÁËÆðµã¡£$"
+   match="^ÄãË³ÀûµØ»Øµ½ÁËÆðµã¡£"
    regexp="y"
    send_to="12"
    sequence="100"
@@ -373,6 +439,7 @@
   <send>base.sleep(1, 'sleep')</send>
   </trigger>
   <trigger
+   enabled="y"
    group="snow"
    match="^ÄãÍ»È»·¢ÏÖÔÚÂ·ÅÔµÄÒ»Æ¬»ýÑ©ÉÏÐÐ×ß\(walk\)ËÆºõ¿ÉÒÔÓÃÀ´Á·Ï°Çá¹¦¡£"
    regexp="y"
@@ -401,21 +468,22 @@
   <send>base.sleep(1, 'sleep')</send>
   </trigger>
   <trigger
-   group="ludu"
-   match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
-   regexp="y"
-   send_to="12"
-   sequence="100"
-  >
-  <send>DoAfter(.5, 'yun regenerate')</send>
-  </trigger>
-  <trigger
    group="dushu"
    match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
    regexp="y"
    sequence="100"
   >
   <send>yun regenerate</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="qimen"
+   match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>DoAfter(.5, 'yun regenerate')</send>
   </trigger>
   <trigger
    group="dazuo"
@@ -460,18 +528,34 @@
    send_to="12"
    sequence="100"
   >
-  <send>DoAfterSpecial(2,'lujob',10)</send>
+  <send>DoAfterSpecial(2,'lujob',10) </send>
   </trigger>
   <trigger
-   group="xuexi"
+   enabled="y"
+   group="lujob"
+   lines_to_match="2"
+   match="^ÄãÏòÂ½³Ë·ç´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^Â½³Ë·çËµµÀ£º¡¸Äã¸Õ×ö"
+   multi_line="y"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>doafter(10, 'lujob', 10)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="lujob"
    lines_to_match="2"
    match="^ÄãÏòÂ½³Ë·ç´òÌýÓÐ¹Ø¡ºjob¡»µÄÏûÏ¢¡£\n^Â½³Ë·çËµµÀ£º¡¸×¯×Ó¸½½ü×î½üÀ´Ò»Î»Å®·ÉÔô£¬Äã»¹ÊÇÏÈÈ¥Á·Á·¹¦·ò°É£¬ÒÔÃâÅöµ½±»ÈË³ÜÐ¦£¡¡¹"
    multi_line="y"
    regexp="y"
-   send_to="13"
+   send_to="12"
    sequence="100"
   >
-  <send>xuexi()</send>
+  <send>SendToNotepad('ÌáÊ¾','¸ÃÁ·¹¦ÁË');
+EnableTriggerGroup('jianding', 0);
+EnableTriggerGroup('guozhen', 0);
+hps_del()</send>
   </trigger>
   <trigger
    group="dushu"
@@ -483,7 +567,8 @@
   <send>doafter(1, 'du shediao for 1');</send>
   </trigger>
   <trigger
-   group="ludu"
+   enabled="y"
+   group="qimen"
    match="^ÄãÑÐ¶ÁÁËÒ»´ÎÓÐ¹ØÆæÃÅ°ËØÔµÄ¼¼ÇÉ£¬ËÆºõÓÐµãÐÄµÃ¡£"
    regexp="y"
    send_to="10"
@@ -492,22 +577,14 @@
   <send>duBook</send>
   </trigger>
   <trigger
-   group="ludu"
+   enabled="y"
+   group="qimen"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË"
    regexp="y"
    send_to="10"
    sequence="100"
   >
   <send>w;s;s;s;s;duBook</send>
-  </trigger>
-  <trigger
-   group="lian"
-   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
-   regexp="y"
-   send_to="12"
-   sequence="100"
-  >
-  <send>base.sleep(0, 'lian dodge 1')</send>
   </trigger>
   <trigger
    group="dushu"
@@ -517,6 +594,15 @@
    sequence="100"
   >
   <send>base.sleep(0, 'read shediao 1')</send>
+  </trigger>
+  <trigger
+   group="lian"
+   match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>base.sleep(0, 'lian dodge 1')</send>
   </trigger>
   <trigger
    group="dazuo"
@@ -537,23 +623,23 @@
   <send>base.sleep(0, 'tuna 10')</send>
   </trigger>
   <trigger
+   enabled="y"
    group="snow"
    match="^ÄãÒ»Â·×ßÏÂÀ´£¬¿´×Å½ÅÓ¡»ØÏë·½²ÅµÄ²½·¨£¬"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>doafter(2, 'l snow');</send>
+  <send>doafter(3, 'l snow');</send>
   </trigger>
   <trigger
-   enabled="y"
    group="guozhen"
    match="^ÄãÒÑ¾­Í¨¹ýÌÒ»¨µºÈëÃÅÈÎÎñ»ñµÃÁË.*¾­Ñé£¬´ËÈÎÎñÎª¿ÉÑ¡ÈÎÎñ£¬²»Ó°Ïì°ÝÊ¦¡£"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>job.zouwei(0)</send>
+  <send>job.busy()</send>
   </trigger>
   <trigger
    group="dazuo"
@@ -576,7 +662,8 @@
   <send>dazuo_on()</send>
   </trigger>
   <trigger
-   group="ludu"
+   enabled="y"
+   group="qimen"
    match="^ÄãÔÚÕâÀïÕÒÁË°ëÌì£¬È´Ê²Ã´¶¼Ã»ÓÐÕÒµ½"
    regexp="y"
    sequence="100"
@@ -584,7 +671,6 @@
   <send>zhao</send>
   </trigger>
   <trigger
-   enabled="y"
    expand_variables="y"
    group="guozhen"
    match="^ÄãÕ½Ê¤ÁË@zhen_npc_ch!"
@@ -595,13 +681,14 @@
   <send>job.kill()</send>
   </trigger>
   <trigger
-   group="ludu"
+   enabled="y"
+   group="qimen"
    match="^ÄãÕÒµ½ÁËÒ»±¾(.*)£¬ÐÀÏ²Èô¿ñ"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>du_get_book("%1")</send>
+  <send>job.find("%1")</send>
   </trigger>
   <trigger
    group="dushu"
@@ -613,7 +700,6 @@
   <send>doafter(1, 'read shediao 1');</send>
   </trigger>
   <trigger
-   enabled="y"
    group="guozhen"
    match="^ÌìÉ«´ó±ä£¬Â½³Ë·ç¸øÄãËãµÄØÔÒ²²»ÄÇÃ´×¼ÁË¡£"
    regexp="y"
@@ -623,20 +709,22 @@
   <send>job.back()</send>
   </trigger>
   <trigger
+   enabled="y"
    group="snow"
    match="^Ñ©£¬Ñ©£¬»¹ÊÇÑ©¡£"
    regexp="y"
    send_to="12"
    sequence="100"
   >
-  <send>doafter(2,'l snow')</send>
+  <send>doafter(3,'l snow')</send>
   </trigger>
   <trigger
    enabled="y"
-   match="°¶±ßÒ»Ö»¶É´¬ÉÏµÄÀÏô¹¹«ËµµÀ£ºÕýµÈ×ÅÄãÄØ£¬ÉÏÀ´°É¡£"
+   match="ÄãµÄ¡¸.*¡¹½ø²½ÁË£¡"
+   regexp="y"
    sequence="100"
   >
-  <send>enter</send>
+  <send>sk</send>
   </trigger>
   <trigger
    enabled="y"
@@ -644,7 +732,14 @@
    send_to="12"
    sequence="100"
   >
-  <send>job.zouwei()</send>
+  <send>SendToNotepad('ÌáÊ¾','Ê²Ã´ÍæÒâ');</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   match="Ò»Ò¶±âÖÛ»º»ºµØÊ»ÁË¹ýÀ´£¬ô¹¹«½«Ò»¿éÌ¤½Å°å´îÉÏµÌ°¶£¬ÒÔ±ã³Ë¿Í"
+   sequence="100"
+  >
+  <send>enter</send>
   </trigger>
 </triggers>
 </muclient>
