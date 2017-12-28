@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 8:48 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 9:35 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -124,7 +124,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
   >
   <trigger
    enabled="y"
@@ -176,7 +176,6 @@
   <send>SetVariable('zhen_npc_en', "%1");</send>
   </trigger>
   <trigger
-   enabled="y"
    group="snow"
    match="^»·¹ËËÄÖÜ£¬µ½´¦¶¼ÊÇ°×°¨°¨µÄ»ýÑ©¡£"
    regexp="y"
@@ -186,7 +185,6 @@
   <send>doafter(3, 'l snow');</send>
   </trigger>
   <trigger
-   enabled="y"
    group="snow"
    match="^½à°×µÄÑ©µØÉÏÁãÐÇµÄÉ¢Âä×Å¼¸¶ä½ÅÓ¡¡£"
    regexp="y"
@@ -265,7 +263,6 @@
   <send>doafter(2, '2e(ask lu about job)', 11)</send>
   </trigger>
   <trigger
-   enabled="y"
    group="snow"
    match="^ÂýÂýµÄ£¬Äã·¢ÏÖ×Ô¼º¿ÉÒÔÕö¿ªÑÛÁË£¬Ö»ÊÇÑÛ¾¦ËÆÓÐÉ°×Ó£¬ÌÛÍ´Á÷Àá¡£"
    regexp="y"
@@ -275,6 +272,7 @@
   <send>doafter(3,  'l snow')</send>
   </trigger>
   <trigger
+   enabled="y"
    group="dazuo"
    match="^Äã±ØÐëÏÈÓÃ enable Ñ¡ÔñÄãÒªÓÃµÄÄÚ¹¦ÐÄ·¨¡£$"
    regexp="y"
@@ -314,7 +312,6 @@
   <send>base.sleep(1, 'sleep')</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãµÄÄÚÁ¦²»¹»"
    regexp="y"
@@ -342,6 +339,7 @@
   <send>base.sleep(1,'sleep')</send>
   </trigger>
   <trigger
+   enabled="y"
    group="dazuo"
    match="^ÄãµÄÄÚÁ¦ÉÏÏÞÔö¼ÓÁË"
    regexp="y"
@@ -377,6 +375,7 @@
   </trigger>
   <trigger
    custom_colour="3"
+   enabled="y"
    group="dazuo"
    make_underline="y"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
@@ -387,7 +386,6 @@
   <send>base.sleepDelay(30, 'sleep')</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^Äã¸ÕÔÚÈý·ÖÖÓÄÚË¯¹ýÒ»¾õ, ¶àË¯¶ÔÉíÌåÓÐº¦ÎÞÒæ"
    regexp="y"
@@ -417,7 +415,6 @@
   <send>job.zouwei(0)</send>
   </trigger>
   <trigger
-   enabled="y"
    expand_variables="y"
    group="qimen"
    match="^Äã»ñµÃÁË*µãÇ±ÄÜ¡£"
@@ -470,7 +467,6 @@
   <send>doafter(.5, 'tuna 10');</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
    regexp="y"
@@ -483,9 +479,10 @@
    group="dushu"
    match="^ÄãÂÔÒ»ÄýÉñ£¬¾«Éñ¿´ÆðÀ´ºÃ¶àÁË¡£"
    regexp="y"
+   send_to="12"
    sequence="100"
   >
-  <send>read shediao 1</send>
+  <send>DoAfterSpecial(1,'duBook', 10)</send>
   </trigger>
   <trigger
    group="guozhen"
@@ -497,7 +494,6 @@
   <send>doafter(2.5, '3w(ask lu about job)', 11)</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãÇëÏÈÓÃ enable Ö¸ÁîÑ¡ÔñÄãÒªÊ¹ÓÃµÄÄÚ¹¦"
    regexp="y"
@@ -507,7 +503,6 @@
   <send>n;n;n;e;sleep</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãÉíÉÏÃ»ÓÐ.*ÕâÖÖ¶«Î÷,ÇëÓÃ id Ö¸Áî¿´¿´ÎïÆ· id ¡£"
    regexp="y"
@@ -552,7 +547,6 @@
   <send>base.sleep(1, 'sleep')</send>
   </trigger>
   <trigger
-   enabled="y"
    group="snow"
    match="^ÄãÍ»È»·¢ÏÖÔÚÂ·ÅÔµÄÒ»Æ¬»ýÑ©ÉÏÐÐ×ß\(walk\)ËÆºõ¿ÉÒÔÓÃÀ´Á·Ï°Çá¹¦¡£"
    regexp="y"
@@ -571,6 +565,7 @@
   </trigger>
   <trigger
    custom_colour="7"
+   enabled="y"
    group="dazuo"
    make_underline="y"
    match="^ÄãÏÖÔÚµÄÆøÌ«ÉÙÁË£¬ÎÞ·¨²úÉúÄÚÏ¢ÔËÐÐÈ«Éí¾­Âö"
@@ -589,7 +584,6 @@
   <send>yun regenerate</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãÏÖÔÚ¹ýÓÚÆ£¾ë£¬ÎÞ·¨×¨ÐÄÏÂÀ´ÑÐ¶ÁÐÂÖª¡£"
    regexp="y"
@@ -599,6 +593,7 @@
   <send>DoAfter(.5, 'yun regenerate')</send>
   </trigger>
   <trigger
+   enabled="y"
    group="dazuo"
    match="^ÄãÏÖÔÚ¾«²»¹»£¬ÎÞ·¨¿ØÖÆÄÚÏ¢µÄÁ÷¶¯£¡$"
    regexp="y"
@@ -677,10 +672,9 @@ hps_del()</send>
    send_to="12"
    sequence="100"
   >
-  <send>doafter(1, 'du shediao for 1');</send>
+  <send>DoAfterSpecial(1, 'duBook', 10)</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãÑÐ¶ÁÁËÒ»´ÎÓÐ¹ØÆæÃÅ°ËØÔµÄ¼¼ÇÉ£¬ËÆºõÓÐµãÐÄµÃ¡£"
    regexp="y"
@@ -690,7 +684,6 @@ hps_del()</send>
   <send>duBook</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË"
    regexp="y"
@@ -706,7 +699,7 @@ hps_del()</send>
    send_to="12"
    sequence="100"
   >
-  <send>base.sleep(0, 'read shediao 1')</send>
+  <send>DoAfterSpecial(0, 'duBook')</send>
   </trigger>
   <trigger
    group="lian"
@@ -718,6 +711,7 @@ hps_del()</send>
   <send>base.sleep(0, 'lian dodge 1')</send>
   </trigger>
   <trigger
+   enabled="y"
    group="dazuo"
    match="^ÄãÒ»¾õÐÑÀ´£¬¾«Éñ¶¶ËÓµØ»î¶¯ÁË¼¸ÏÂÊÖ½Å"
    regexp="y"
@@ -736,7 +730,6 @@ hps_del()</send>
   <send>base.sleep(0, 'tuna 10')</send>
   </trigger>
   <trigger
-   enabled="y"
    group="snow"
    match="^ÄãÒ»Â·×ßÏÂÀ´£¬¿´×Å½ÅÓ¡»ØÏë·½²ÅµÄ²½·¨£¬"
    regexp="y"
@@ -755,6 +748,7 @@ hps_del()</send>
   <send>job.busy()</send>
   </trigger>
   <trigger
+   enabled="y"
    group="dazuo"
    match="^ÄãÔË¹¦Íê±Ï£¬ÉîÉîÎüÁË¿ÚÆø£¬Õ¾ÁËÆðÀ´¡£$"
    regexp="y"
@@ -764,6 +758,7 @@ hps_del()</send>
   <send>doafter(.5, 'dazuo 10');</send>
   </trigger>
   <trigger
+   enabled="y"
    group="dazuo"
    lines_to_match="2"
    match="^ÄãÔË¹¦Íê±Ï£¬ÉîÉîÎüÁË¿ÚÆø£¬Õ¾ÁËÆðÀ´¡£\nÄãµÄÄÚÁ¦Ôö¼ÓÁË£¡£¡"
@@ -775,7 +770,6 @@ hps_del()</send>
   <send>dazuo_on()</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãÔÚÕâÀïÕÒÁË°ëÌì£¬È´Ê²Ã´¶¼Ã»ÓÐÕÒµ½"
    regexp="y"
@@ -794,7 +788,6 @@ hps_del()</send>
   <send>job.kill()</send>
   </trigger>
   <trigger
-   enabled="y"
    group="qimen"
    match="^ÄãÕÒµ½ÁËÒ»±¾(.*)£¬ÐÀÏ²Èô¿ñ"
    regexp="y"
@@ -810,7 +803,7 @@ hps_del()</send>
    send_to="12"
    sequence="100"
   >
-  <send>doafter(1, 'read shediao 1');</send>
+  <send>DoAfterSpecial(1,'duBook',10)</send>
   </trigger>
   <trigger
    group="guozhen"
@@ -822,7 +815,6 @@ hps_del()</send>
   <send>job.back()</send>
   </trigger>
   <trigger
-   enabled="y"
    group="snow"
    match="^Ñ©£¬Ñ©£¬»¹ÊÇÑ©¡£"
    regexp="y"
@@ -861,7 +853,7 @@ hps_del()</send>
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
   >
   <alias
    match="duBook"
@@ -909,7 +901,7 @@ hps_del()</send>
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
   >
 </timers>
 
@@ -918,7 +910,7 @@ hps_del()</send>
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
   >
 
   <macro name="up" type="send_now" >
@@ -1017,19 +1009,10 @@ hps_del()</send>
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
   >
-  <variable name="Q_location">Áú¶ú»¢×ã·½ºø</variable>
-  <variable name="Q_misc"></variable>
-  <variable name="Q_misc2">fang hu</variable>
-  <variable name="Q_name">¼ø¶¨¹ÅÍæ</variable>
-  <variable name="Q_status">¼ø¶¨Íê³É</variable>
-  <variable name="guawei">¿²Ë®</variable>
-  <variable name="guwan">Áú¶ú»¢×ã·½ºø</variable>
-  <variable name="position">ne,n,sw,nw</variable>
+  <variable name="book_en">book</variable>
   <variable name="username">ÊÖÀïÓÐ¸ùóï</variable>
-  <variable name="zhen_npc_ch">ÖÜ¾ýÃÃ</variable>
-  <variable name="zhen_npc_en">junmei</variable>
 </variables>
 
 <!-- colours -->
@@ -1037,7 +1020,7 @@ hps_del()</send>
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
   >
 
 <ansi>
@@ -1094,7 +1077,7 @@ hps_del()</send>
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
   >
 
   <key name="0" >
@@ -1208,7 +1191,7 @@ hps_del()</send>
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 20:48:39"
+   date_saved="2017-12-28 21:35:04"
   >
 
 <ansi>
@@ -1237,6 +1220,6 @@ hps_del()</send>
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_chat.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_p2palias_v2016.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_ButtonsPad_v2014.xml" plugin="y" />
-<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\¶É·ã×´Ì¬²å¼þ20170529.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\Show_fullme_×Ô¶¯ËõÐ¡hszÍ¼Æ¬_20170921.xml" plugin="y" />
+<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\¶É·ã×´Ì¬²å¼þ20170529.xml" plugin="y" />
 </muclient>

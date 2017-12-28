@@ -983,8 +983,8 @@ function skill_draw_win()
 	WindowResize (skill_win, skill_win_width, skill_win_height, 0x000010)
 	WindowCircleOp (skill_win, miniwin.circle_round_rectangle, 0, 2, skill_win_width - 2, skill_win_height, 0xc0c0c0, 0, 1,0, 0, 9, 9)
 	
-	local left = 35
-	local left2 = 20
+	local left = 20
+	local left2 = 10
 	local top = 10
 	local title_length = 88
 	local grid_off = title_length + 40

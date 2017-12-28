@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 5:07 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 9:35 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -8,7 +8,7 @@
 <world
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
 
    auto_say_override_prefix="-"
    auto_say_string="say "
@@ -124,7 +124,7 @@
 <triggers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
   >
   <trigger
    enabled="y"
@@ -551,7 +551,7 @@
 <aliases
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
   >
   <alias
    match="duBook"
@@ -583,7 +583,7 @@
 <timers
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
   >
 </timers>
 
@@ -592,7 +592,7 @@
 <macros
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
   >
 
   <macro name="up" type="send_now" >
@@ -686,7 +686,7 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
   >
   <variable name="bkName">luo shu</variable>
   <variable name="dz">1</variable>
@@ -723,7 +723,7 @@
 <colours
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
   >
 
 <ansi>
@@ -780,7 +780,7 @@
 <keypad
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
   >
 
   <key name="0" >
@@ -894,7 +894,7 @@
 <printing
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-28 17:07:38"
+   date_saved="2017-12-28 21:35:11"
   >
 
 <ansi>
@@ -921,7 +921,7 @@
 <!-- plugins -->
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\Pkuxkx_mw_z_order_monitor.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_chat.xml" plugin="y" />
-<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\¶É·ã×´Ì¬²å¼þ20170529.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\pkuxkx_p2palias_v2016.xml" plugin="y" />
 <include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\Show_fullme_×Ô¶¯ËõÐ¡hszÍ¼Æ¬_20170921.xml" plugin="y" />
+<include name="Z:\Users\shanghua\MUSHclient\pkuxkx_plugin\¶É·ã×´Ì¬²å¼þ20170529.xml" plugin="y" />
 </muclient>

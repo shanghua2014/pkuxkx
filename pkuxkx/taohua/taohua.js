@@ -161,8 +161,9 @@ note('====== 所有触发已关闭，请启动相关任务！');
 EnableTriggerGroup('dazuo', 0)
 EnableTriggerGroup('tuna', 0)
 EnableTriggerGroup('dushu', 0)
+EnableTriggerGroup('qimen', 0)
 EnableTriggerGroup('lian', 0)
-
+hps_del()
 
 //--------------------------------------------
 //| 公共方法

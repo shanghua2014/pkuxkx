@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE muclient>
-<!-- Saved on 2017Äê Ê®¶þÔÂ 19ÈÕ ÐÇÆÚ¶þ, ÏÂÎç 4:18 -->
+<!-- Saved on 2017Äê Ê®¶þÔÂ 28ÈÕ ÐÇÆÚËÄ, ÏÂÎç 9:34 -->
 <!-- MuClient version 5.05 -->
 <!-- Written by Nick Gammon -->
 <!-- Home Page: http://www.mushclient.com/ -->
@@ -11,35 +11,9 @@
 <variables
    muclient_version="5.05"
    world_file_version="15"
-   date_saved="2017-12-19 16:18:33"
+   date_saved="2017-12-28 21:34:59"
   >
-  <variable name="bkName">luo shu</variable>
-  <variable name="dz">1</variable>
-  <variable name="hp_exp">40005</variable>
-  <variable name="hp_jing">170</variable>
-  <variable name="hp_jingEff">170</variable>
-  <variable name="hp_jingMax">170</variable>
-  <variable name="hp_jingli">40</variable>
-  <variable name="hp_jingliMax">40</variable>
-  <variable name="hp_neili">446</variable>
-  <variable name="hp_neiliMax">276</variable>
-  <variable name="hp_qi">95</variable>
-  <variable name="hp_qiEff">328</variable>
-  <variable name="hp_qiMax">328</variable>
-  <variable name="hp_qn">15028</variable>
-  <variable name="is_find">0</variable>
-  <variable name="npcName">ÃÏÎÞÒÇ</variable>
-  <variable name="patrolOver"> n e w (nw) (nd) (wd) (nd) (wd) (sd) (nu) (nd) (nd) (ed) (wu) (nu) (ed) (wu) (wd) (eu) (nd) w (nu) (nu) (nu) (sd) (sd) (sd) e n n n e n s w n s w</variable>
-  <variable name="username">ÊÖÀïÓÐ¸ö½£</variable>
-  <variable name="zd_path"></variable>
-  <variable name="zhenwei_1">s</variable>
-  <variable name="zhenwei_2">n</variable>
-  <variable name="zhenwei_3">se</variable>
-  <variable name="zhenwei_4">nw</variable>
-  <variable name="zhenwei_ch">Àë»ð</variable>
-  <variable name="zhenwei_ch1">Î÷±±</variable>
-  <variable name="zhenwei_ch2">Î÷±±</variable>
-  <variable name="zhenwei_ch3">ÄÏ</variable>
-  <variable name="zhenwei_ch4">¶«</variable>
+  <variable name="book_en">book</variable>
+  <variable name="username">ÊÖÀïÓÐ¸ùóï</variable>
 </variables>
 </muclient>
